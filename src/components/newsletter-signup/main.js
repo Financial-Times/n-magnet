@@ -1,0 +1,6 @@
+function newsletterSignupInit() {
+
+}
+export {
+    newsletterSignupInit
+};

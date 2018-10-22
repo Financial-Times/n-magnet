@@ -1,0 +1,60 @@
+{
+  "name": "@financial-times/n-magnet",
+  "version": "0.0.0",
+  "description": "orchestrates onward journey components (better promo, newsletters, etc)",
+  "main": "main.js",
+  "scripts": {
+    "test": "make test",
+    "precommit": "node_modules/.bin/secret-squirrel",
+    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
+    "prepush": "make verify -j3",
+    "build-dev": "webpack --config webpack.config.js --mode development --env development",
+    "build-prod": "webpack --config webpack.config.js --mode production --env production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/n-magnet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/n-magnet/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/n-magnet#readme",
+  "devDependencies": {
+    "@financial-times/n-gage": "^2.0.1",
+    "@financial-times/n-internal-tool": "^2.2.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bower": "^1.8.4",
+    "chalk": "latest",
+    "cheerio": "^1.0.0-rc.2",
+    "eslint-plugin-react": "^7.11.1",
+    "fetch-mock": "^6.4.3",
+    "file-loader": "^2.0.0",
+    "jest": "^23.1.0",
+    "jsdom": "^11.11.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "pa11y-ci": "^2.1.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "@financial-times/x-engine": "^1.0.0-beta.3",
+    "@financial-times/x-eventpromo": "^0.0.3",
+    "o-date": "git+https://github.com/Financial-Times/o-date.git#v1.2.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "x-dash": {
+    "engine": {
+      "server": "react",
+      "browser": "react"
+    }
+  }
+}
