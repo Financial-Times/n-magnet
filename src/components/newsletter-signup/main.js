@@ -1,4 +1,4 @@
-function newsletterSignupInit() {
+function newsletterSignupInit () {
 
 }
 export {

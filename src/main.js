@@ -1,32 +1,18 @@
-import React from 'React';
-import renderEventpromo from 'components/eventpromo/main'
-
-async function getMagnetDataFromApi (conceptIds = []) {
-    const apiUrl = 'http://local.ft.com/magnet/api';
-
-    try {
-        const fetchResponse = await fetch(apiUrl, {
-            body: JSON.stringify(conceptIds),
-            headers: {
-                'accept': 'application/json',
-                'content-type': 'application/json'
-            },
-            method: 'POST'
-        });
-        const jsonResponse = await fetchResponse.json();
-
-        return jsonResponse;
-    }
-    catch (err) {
-        throw new Error('magnet-api failure, cause:' + err.toString());
-    }
-}
-
+import {getEventsFromApi} from './lib/event-promo-client';
+import {renderEventpromo} from './components/eventpromo/main';
 
 async function loadModule (magnetPlaceholderSelector, magnetData)
 {
-    console.log('loadModule', magnetData);
+    try {
+        if (magnetData.type === 'eventpromo') {
+            await renderEventpromo(magnetPlaceholderSelector, magnetData);
+        }
+    }
+    catch (err) {
+        throw new Error(`magnet failed to load module of type ${magnetData.type}, cause: ${err.toString()}`);
+    }
 }
+
 export async function magnetInit () {
     const magnetDataSelector = document.querySelector('.js-magnet-data');
     const magnetPlaceholderSelector = document.querySelector('.js-magnet-cta');
@@ -43,7 +29,7 @@ export async function magnetInit () {
 
     let magnetData;
     try {
-        magnetData = await getMagnetDataFromApi(conceptIds);
+        magnetData = await getEventsFromApi(conceptIds);
     }
     catch (err) {
         throw new Error('error on getMagnetDataFromApi, caused by ' + err.toString());

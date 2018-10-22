@@ -1,3 +1,4 @@
+import React from 'react';
 import {Eventpromo} from '@financial-times/x-eventpromo';
 import xEngine from '@financial-times/x-engine';
 
