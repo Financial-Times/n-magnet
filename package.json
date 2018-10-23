@@ -40,9 +40,7 @@
     "jest": "^23.1.0",
     "jsdom": "^11.11.0",
     "mini-css-extract-plugin": "^0.4.3",
-    "pa11y-ci": "^2.1.1",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "pa11y-ci": "^2.1.1"
   },
   "dependencies": {
     "@financial-times/x-engine": "^1.0.0-beta.3",
