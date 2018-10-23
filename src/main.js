@@ -1,17 +1,5 @@
-import {getEventsFromApi} from './lib/event-promo-client';
-import {renderEventpromo} from './components/eventpromo/main';
-
-async function loadModule (magnetPlaceholderSelector, magnetData)
-{
-    try {
-        if (magnetData.type === 'eventpromo') {
-            await renderEventpromo(magnetPlaceholderSelector, magnetData);
-        }
-    }
-    catch (err) {
-        throw new Error(`magnet failed to load module of type ${magnetData.type}, cause: ${err.toString()}`);
-    }
-}
+import {getMagnetData} from './lib/magnet-engine';
+import {loadModule} from './lib/magnet-renderer';
 
 export async function magnetInit () {
     const magnetDataSelector = document.querySelector('.js-magnet-data');
@@ -29,10 +17,10 @@ export async function magnetInit () {
 
     let magnetData;
     try {
-        magnetData = await getEventsFromApi(conceptIds);
+        magnetData = await getMagnetData(conceptIds);
     }
     catch (err) {
-        throw new Error('error on getMagnetDataFromApi, caused by ' + err.toString());
+        throw new Error(`error on getMagnetDataFromApi, caused by ${err.toString()}`);
     }
 
     try {
@@ -40,19 +28,6 @@ export async function magnetInit () {
 
         const replacedItem = document.querySelector('.js-instant-alert-cta');
         replacedItem.style.display = 'none';
-
-        /*
-        // todo: remove this comment
-        const loadedPromo = document.querySelector('.event-promo-inarticle') || null;
-        const eventPromoId = (loadedPromo && loadedPromo.dataset.focusConcept) ? loadedPromo.dataset.focusConcept : null;
-
-        // tracking
-        broadcast('oTracking.event', {
-            category: 'n-eventpromo',
-            action: 'shown',
-            eventPromoId
-        });
-        */
     }
     catch (err) {
         throw new Error('failedMagnetInit, caused by ' + err.toString());
