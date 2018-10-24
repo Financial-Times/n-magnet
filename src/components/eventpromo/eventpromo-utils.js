@@ -14,7 +14,7 @@ function getFormattedDate (theEvent) {
 
 export function getMappedData (theEvent) {
     const eventUrl = new URL(theEvent.eventUrl);
-    const images = [theEvent.imageUrl, ...config.get('animationStaticImages')];
+    const images = [theEvent.imageUrl, ...config.get('eventpromoAnimationStaticImages')];
 
     eventUrl.searchParams.set('segmentId', theEvent.segmentId);
 

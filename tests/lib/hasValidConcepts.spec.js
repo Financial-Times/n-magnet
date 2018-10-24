@@ -1,5 +1,5 @@
-const {hasValidConcepts} = require('../../src/lib/hasValidConcepts');
-const validConcepts = require('../fixtures/conceptFixture');
+import {hasValidConcepts} from '../../src/lib/hasValidConcepts';
+import * as validConcepts from '../fixtures/conceptFixture';
 
 describe('hasValidConcepts()', () => {
 

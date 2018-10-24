@@ -1,4 +1,4 @@
-import {getMagnetData} from './lib/magnet-engine';
+import {geDataFromApi} from './lib/magnet-api-client';
 import {renderModule} from './lib/magnet-renderer';
 
 export async function magnetInit () {
@@ -17,10 +17,10 @@ export async function magnetInit () {
 
     let magnetData;
     try {
-        magnetData = await getMagnetData(conceptIds);
+        magnetData = await geDataFromApi(conceptIds);
     }
     catch (err) {
-        throw new Error(`error on getMagnetDataFromApi, caused by ${err.toString()}`);
+        throw new Error(`error on geDataFromApi, caused by ${err.toString()}`);
     }
 
     try {

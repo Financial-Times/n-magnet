@@ -1,11 +1,11 @@
-import {getMagnetData} from '../../src/lib/magnet-engine';
+import {getMagnetData} from '../../src/lib/magnet-api-client';
 import {getEventpromoFromApi} from '../../src/components/eventpromo/main';
 import conceptFixture from '../fixtures/conceptFixture';
 
 jest.mock('../../src/components/eventpromo/main');
 
-describe('magnet-engine', () => {
-    describe('getMagnetData', () => {
+describe('magnet-api-client', () => {
+    describe('geDataFromApi', () => {
         test('should throw error when data source fails', async () => {
             const fakeErrorMessage = 'Some error occurred';
             getEventpromoFromApi.mockImplementation(() => {

@@ -28,28 +28,3 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
         throw new Error(`failed to render eventpromo, cause: ${err.toString()}`);
     }
 }
-
-export async function getEventpromoFromApi (conceptIds = []) {
-    try {
-        const requestConceptIds = {
-            conceptIds: {
-                focus: conceptIds.focus || [],
-                speakers: conceptIds.speakers || [],
-            }
-        };
-
-        const fetchResponse = await fetch(config.get('eventpromoDataSourceUrl'), {
-            body: JSON.stringify(requestConceptIds),
-            headers: {
-                'accept': 'application/json',
-                'content-type': 'application/json'
-            },
-            method: 'POST'
-        });
-
-        return await fetchResponse.json();
-    }
-    catch (err) {
-        throw new Error(`failed to get eventpromo data, cause: ${err.toString()}`);
-    }
-}
