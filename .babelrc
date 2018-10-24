@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ],
+  "ignore": [
+    "node_modules"
+  ]
+}

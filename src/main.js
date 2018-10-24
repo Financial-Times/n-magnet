@@ -1,5 +1,5 @@
 import {getMagnetData} from './lib/magnet-engine';
-import {loadModule} from './lib/magnet-renderer';
+import {renderModule} from './lib/magnet-renderer';
 
 export async function magnetInit () {
     const magnetDataSelector = document.querySelector('.js-magnet-data');
@@ -24,7 +24,7 @@ export async function magnetInit () {
     }
 
     try {
-        await loadModule(magnetPlaceholderSelector, magnetData);
+        await renderModule(magnetPlaceholderSelector, magnetData);
 
         const replacedItem = document.querySelector('.js-instant-alert-cta');
         replacedItem.style.display = 'none';

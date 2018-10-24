@@ -4,6 +4,7 @@
   "description": "orchestrates onward journey components (better promo, newsletters, etc)",
   "main": "main.js",
   "scripts": {
+    "jest": "jest",
     "test": "make test",
     "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
