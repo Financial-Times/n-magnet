@@ -1,4 +1,3 @@
-const fs = require('fs');
 const config = {
 	'env': {
 		'browser': true,
@@ -61,8 +60,8 @@ const packageJsonContainsPackage = packageName => {
 	return (
 		(dependencies && dependencies[packageName])
 		|| (devDependencies && devDependencies[packageName])
-	)
-}
+	);
+};
 
 if ((packageJsonContainsPackage('react') || packageJsonContainsPackage('preact'))) {
 	config.plugins.push('react');
