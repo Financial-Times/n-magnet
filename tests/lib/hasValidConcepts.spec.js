@@ -1,6 +1,5 @@
 const {hasValidConcepts} = require('../../src/lib/hasValidConcepts');
 const validConcepts = require('../fixtures/conceptFixture');
-const invalidConceptObject = require('../fixtures/invalidConcepts');
 
 describe('hasValidConcepts()', () => {
 
@@ -9,6 +8,7 @@ describe('hasValidConcepts()', () => {
 	});
 
 	test('given a concept object with invalid concept values returns false', () => {
+	    const invalidConceptObject = 'invalid';
 		expect(hasValidConcepts(invalidConceptObject)).toBe(false);
 	});
 
