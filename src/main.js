@@ -28,9 +28,6 @@ export async function magnetInit () {
 
     try {
         await renderModule(magnetPlaceholderSelector, magnetData);
-
-        const replacedItem = document.querySelector('.js-instant-alert-cta');
-        replacedItem.style.display = 'none';
     }
     catch (err) {
         throw new Error('failedMagnetInit, caused by ' + err.toString());
