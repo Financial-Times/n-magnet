@@ -1,16 +1,15 @@
-import {hasValidConcepts} from './hasValidConcepts';
 import * as config from './config';
 
 export async function geDataFromApi (conceptIds = []) {
-    try {
-        const requestConceptIds = {};
-        if (hasValidConcepts(conceptIds)) {
-            requestConceptIds.conceptIds = {
-                focus: conceptIds.focus || [],
-                speakers: conceptIds.speakers || [],
-            };
-        }
+    const requestConceptIds = {};
+    if (conceptIds) {
+        requestConceptIds.conceptIds = {
+            focus: conceptIds.focus || [],
+            speakers: conceptIds.speakers || [],
+        };
+    }
 
+    try {
         const fetchResponse = await fetch(config.get('magnetDataSourceUrl'), {
             body: JSON.stringify(requestConceptIds),
             headers: {

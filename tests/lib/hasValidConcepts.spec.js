@@ -4,7 +4,7 @@ import * as validConcepts from '../fixtures/conceptFixture';
 describe('hasValidConcepts()', () => {
 
 	test('given a concept object with valid concept values returns true', () => {
-		expect(hasValidConcepts(validConcepts)).toBe(true);
+		expect(hasValidConcepts(validConcepts.conceptIds)).toBe(true);
 	});
 
 	test('given a concept object with invalid concept values returns false', () => {

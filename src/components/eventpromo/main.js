@@ -2,7 +2,6 @@ import React from 'react';
 import {Eventpromo} from '@financial-times/x-eventpromo';
 import xEngine from '@financial-times/x-engine';
 import {getMappedData} from './eventpromo-utils';
-import * as config from '../../lib/config';
 
 export async function renderEventpromo (magnetPlaceholderSelector, data) {
 

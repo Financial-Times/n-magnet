@@ -1,71 +1,66 @@
-import {getMagnetData} from '../../src/lib/magnet-api-client';
-import {getEventpromoFromApi} from '../../src/components/eventpromo/main';
+const fetchMock = require('fetch-mock');
+import {geDataFromApi} from '../../src/lib/magnet-api-client';
 import conceptFixture from '../fixtures/conceptFixture';
+import * as config from '../../src/lib/config';
 
+const dataSourceUrl = config.get('magnetDataSourceUrl');
 jest.mock('../../src/components/eventpromo/main');
+
+afterEach(() => {
+    fetchMock.restore();
+});
 
 describe('magnet-api-client', () => {
     describe('geDataFromApi', () => {
         test('should throw error when data source fails', async () => {
             const fakeErrorMessage = 'Some error occurred';
-            getEventpromoFromApi.mockImplementation(() => {
-                throw new Error(fakeErrorMessage);
-            });
+            const error = new Error(fakeErrorMessage);
+            fetchMock.post(dataSourceUrl, {throws: error});
 
             const conceptIds = {};
 
             let hasError = false;
             try {
-                await getMagnetData(conceptIds);
+                await geDataFromApi(conceptIds);
             }
             catch (err) {
                 hasError = true;
-                expect(err.message).toMatch(/error on getMagnetData/);
+                expect(err.message).toMatch(/failed to get magnet data/);
                 expect(err.message).toMatch(fakeErrorMessage);
             }
             expect(hasError).toEqual(true);
         });
-        describe('should return data on success', () => {
-            test('when called with valid conceptIds', async () => {
-                const fakeData = {someKey: 'someValue'};
-                getEventpromoFromApi.mockImplementation(() => {
-                    return fakeData;
-                });
+        test('should throw error when data source response invalid', async () => {
+            const fakeResponse = {status: 200, body: 'invalid json data'};
+            fetchMock.post(dataSourceUrl, fakeResponse);
 
-                const conceptIds = conceptFixture;
+            const conceptIds = {};
 
-                let hasError = false;
-                try {
-                    const response = await getMagnetData(conceptIds);
-                    expect(getEventpromoFromApi).toBeCalledWith(conceptFixture);
-                    expect(response.type).toEqual('eventpromo');
-                    expect(response.data).toEqual(fakeData);
-                }
-                catch (err) {
-                    hasError = true;
-                }
-                expect(hasError).toEqual(false);
-            });
-            test('when called with invalid concept ids', async () => {
-                const fakeData = {someKey: 'someValue'};
-                getEventpromoFromApi.mockImplementation(() => {
-                    return fakeData;
-                });
+            let hasError = false;
+            try {
+                await geDataFromApi(conceptIds);
+            }
+            catch (err) {
+                hasError = true;
+                expect(err.message).toMatch(/failed to get magnet data/);
+            }
+            expect(hasError).toEqual(true);
+        });
+        test('should return data on success', async () => {
+            const fakeData = {type: 'someType', data: 'someData'};
+            fetchMock.post(dataSourceUrl, fakeData);
 
-                const conceptIds = 'invalidValue';
+            const conceptIds = conceptFixture;
 
-                let hasError = false;
-                try {
-                    const response = await getMagnetData(conceptIds);
-                    expect(getEventpromoFromApi).toBeCalledWith({});
-                    expect(response.type).toEqual('eventpromo');
-                    expect(response.data).toEqual(fakeData);
-                }
-                catch (err) {
-                    hasError = true;
-                }
-                expect(hasError).toEqual(false);
-            });
+            let hasError = false;
+            try {
+                const response = await geDataFromApi(conceptIds);
+                expect(response).toEqual(fakeData);
+            }
+            catch (err) {
+                hasError = true;
+            }
+            expect(hasError).toEqual(false);
         });
     });
 });
