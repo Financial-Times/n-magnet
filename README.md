@@ -5,12 +5,20 @@
 ### Related flags 
 - showArticleCTABloc
 - showEventPromo
-### APIs
+### Repos
 - https://github.com/Financial-Times/next-magnet-api
+- https://github.com/Financial-Times/x-dash
 
 ## Using the component
 ### Add the component
 `npm install @financial-times/n-magnet`
+### Configuration
+Some configuration variable can be overridden using ENV variables.
+
+|config name|env name|example|desc|
+|---|---|---|---|
+|magnetDataSourceUrl|MAGNET_DATASOURCE_URL|http://local.ft.com/magnet/api|api endpoint|
+
 ### Prepare DOM
 The component expects some elements to be present in the DOM
 - `.js-magnet-cta'`: required, the component will be loaded in this element
@@ -38,9 +46,23 @@ if(flags.get('showArticleCTABloc')) {
     });
     }
 ```
+### Running tests
+```jshelllanguage
+# linting, unit-test
+make test
+# unit test only
+make unit-test
+# without coverage
+npm run jest 
+```
 ### Running the demo
 ```
 make install
 make demo
 ```
 The demo will be served on port 5005, at: http://local.ft.com:5005/magnet-demo
+
+## Notes
+When working on integration with next-article, it can be useful to tweak package.json like this:
+" use specific branch: @financial-times/n-magnet": "Financial-Times/n-magnet#magnet-api-integration",
+" use local package: @financial-times/n-magnet": "file:/home/devel/ft/n-magnet",

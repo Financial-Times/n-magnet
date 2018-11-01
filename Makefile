@@ -5,7 +5,7 @@ node_modules/@financial-times/n-gage/index.mk:
 -include node_modules/@financial-times/n-gage/index.mk
 
 unit-test:
-	jest tests --coverage
+	jest tests
 
 test:
 	# TODO: don't ignore a11y but don't block releasing it in it's current state

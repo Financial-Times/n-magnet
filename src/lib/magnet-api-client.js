@@ -1,5 +1,7 @@
 import * as config from './config';
 
+const magnetDataSourceUrl = process.env.MAGNET_DATASOURCE_URL || config.get('magnetDataSourceUrl');
+
 export async function geDataFromApi (conceptIds = []) {
     const requestConceptIds = {};
     if (conceptIds) {
@@ -10,7 +12,7 @@ export async function geDataFromApi (conceptIds = []) {
     }
 
     try {
-        const fetchResponse = await fetch(config.get('magnetDataSourceUrl'), {
+        const fetchResponse = await fetch(magnetDataSourceUrl, {
             body: JSON.stringify(requestConceptIds),
             headers: {
                 'accept': 'application/json',

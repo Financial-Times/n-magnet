@@ -38,11 +38,6 @@ app.get('/magnet/api/', (req, res) => {
 app.post('/magnet/api/', (req, res) => {
     res.send(eventFixture);
 });
-/*
-app.post('/eventpromo/api/get-one', (req, res) => {
-    res.send(eventFixture);
-});
-*/
 
 function runPa11yTests () {
     const spawn = require('child_process').spawn;
