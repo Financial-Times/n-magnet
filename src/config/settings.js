@@ -5,5 +5,5 @@ module.exports = {
         `${staticAssetsBasePath}/break_out.jpg`,
         `${staticAssetsBasePath}/audiance_clapping.jpg`
     ],
-    'magnetDataSourceUrl': 'g/magnet/api'
+    'magnetDataSourceUrl': '/magnet/api'
 };
