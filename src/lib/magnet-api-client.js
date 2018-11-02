@@ -1,6 +1,6 @@
 import * as config from './config';
 
-const magnetDataSourceUrl = process.env.MAGNET_DATASOURCE_URL || config.get('magnetDataSourceUrl');
+const magnetDataSourceUrl = config.get('magnetDataSourceUrl');
 
 export async function geDataFromApi (conceptIds = []) {
     const requestConceptIds = {};
