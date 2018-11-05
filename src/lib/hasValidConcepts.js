@@ -1,8 +1,7 @@
-export function hasValidConcepts (concepts) {
+export function hasValidConcepts (conceptIds = {}) {
     const validKeys = ['focus', 'speakers'];
-    const conceptIds = concepts.conceptIds || {};
 
-    if (conceptIds) {
+    if (typeof conceptIds === 'object' && conceptIds) {
         for (const key of validKeys) {
             if ((key in conceptIds) && Array.isArray(conceptIds[key]) && conceptIds[key].length > 0) {
                 return true;

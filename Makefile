@@ -5,7 +5,7 @@ node_modules/@financial-times/n-gage/index.mk:
 -include node_modules/@financial-times/n-gage/index.mk
 
 unit-test:
-	jest tests --coverage
+	jest tests
 
 test:
 	# TODO: don't ignore a11y but don't block releasing it in it's current state
@@ -17,7 +17,7 @@ test-debug:
 	jest tests --coverage --debug
 
 demo-build:
-	rm -r ./dist
+	rm -rf ./dist
 	@webpack --config webpack.config.js --env development --mode development
 	@$(DONE)
 
@@ -31,3 +31,17 @@ a11y: demo-build
 
 check-secret:
 	secret-squirrel init
+
+# quick hack to make local dev easier
+articleBase=../next-article
+articleTarget=${articleBase}/node_modules/@financial-times/n-magnet
+articleBackup="${articleTarget}-backup"
+linkSource=$(shell pwd)
+
+article-link:
+	mv ${articleTarget} ${articleBackup}
+	ln -s ${linkSource} ${articleTarget}
+
+article-unlink:
+	rm -rf ${articleTarget}
+	mv ${articleBackup} ${articleTarget}

@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "jest": "jest",
+    "webpack": "webpack",
     "test": "make test",
     "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
@@ -32,16 +33,18 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "bower": "^1.8.4",
     "chalk": "latest",
-    "cheerio": "^1.0.0-rc.2",
+    "css-loader": "^1.0.0",
     "eslint-plugin-react": "^7.11.1",
     "fetch-mock": "^6.4.3",
     "file-loader": "^2.0.0",
-    "jest": "^23.1.0",
-    "jsdom": "^11.11.0",
-    "mini-css-extract-plugin": "^0.4.3",
-    "pa11y-ci": "^2.1.1"
+    "jest": "^23.6.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.4",
+    "pa11y-ci": "^2.1.1",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "@financial-times/x-engine": "^1.0.0-beta.3",

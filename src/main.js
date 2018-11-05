@@ -1,4 +1,5 @@
-import {getMagnetData} from './lib/magnet-engine';
+import {hasValidConcepts} from './lib/hasValidConcepts';
+import {geDataFromApi} from './lib/magnet-api-client';
 import {renderModule} from './lib/magnet-renderer';
 
 export async function magnetInit () {
@@ -10,24 +11,23 @@ export async function magnetInit () {
     }
 
     const conceptIds = JSON.parse(magnetDataSelector.innerHTML);
-    if (!conceptIds) {
+    const validConcepts = hasValidConcepts(conceptIds) ? conceptIds : {};
+
+    if (!validConcepts) {
         // eslint-disable-next-line no-console
         console.warn('no valid concepts for article');
     }
 
     let magnetData;
     try {
-        magnetData = await getMagnetData(conceptIds);
+        magnetData = await geDataFromApi(validConcepts);
     }
     catch (err) {
-        throw new Error(`error on getMagnetDataFromApi, caused by ${err.toString()}`);
+        throw new Error(`error on geDataFromApi, caused by ${err.toString()}`);
     }
 
     try {
         await renderModule(magnetPlaceholderSelector, magnetData);
-
-        const replacedItem = document.querySelector('.js-instant-alert-cta');
-        replacedItem.style.display = 'none';
     }
     catch (err) {
         throw new Error('failedMagnetInit, caused by ' + err.toString());
