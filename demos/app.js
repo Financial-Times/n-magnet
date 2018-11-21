@@ -1,11 +1,15 @@
 const express = require('@financial-times/n-internal-tool');
-const fixtures = require('./conceptFixtures.json');
-const eventFixture = require('./fixtures.json');
-const eventpromoTemplate = require('./templates/eventpromo.js');
+const conceptFixture = require('./conceptFixture.json');
+const eventFixture = require('./eventpromoFixture.json');
+const newsletterFixture = require('./newsletterFixture.json');
+const magnetTemplate = require('./templates/magnet.js');
 
 const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
+
+const demoPort = 5005;
+const demoHost = 'local.ft.com';
 
 const app = module.exports = express({
     name: 'public',
@@ -22,21 +26,50 @@ const app = module.exports = express({
     s3o: false
 });
 
-app.get('/magnet-demo', (req, res) => {
-    res.send(eventpromoTemplate({
-        title: 'Test magnet app',
-        fixtures: JSON.stringify(fixtures)
+//ignore favicon request for demo
+app.use((req, res, next)=> {
+    if (req.originalUrl === '/favicon.ico') {
+        res.status(204).json({nope: true});
+    } else {
+        next();
+    }
+});
+
+app.get('/', (req, res) => {
+    res.send({
+        'eventpromo-demo': `http://${demoHost}:${demoPort}/eventpromo-demo`,
+        'newsletter-demo': `http://${demoHost}:${demoPort}/newsletter-demo`
+    });
+});
+
+app.get('/eventpromo-demo', (req, res) => {
+    res.send(magnetTemplate({
+        title: 'Test magnet app: eventpromo',
+        conceptFixture: JSON.stringify(conceptFixture)
+    }));
+});
+
+app.get('/newsletter-demo', (req, res) => {
+    res.send(magnetTemplate({
+        title: 'Test magnet app: newsletter',
+        conceptFixture: JSON.stringify(conceptFixture)
     }));
 });
 
 app.use('/magnet-demo/static', express.static('dist/demo'));
 
-//Mock api request
-app.get('/magnet/api/', (req, res) => {
-    res.send(eventFixture);
-});
+//Mock api requestS
 app.post('/magnet/api/', (req, res) => {
-    res.send(eventFixture);
+    const referer = req.header('Referer');
+
+    let fixture;
+    if (referer.indexOf('newsletter') > 1) {
+        fixture = newsletterFixture;
+    }
+    else {
+        fixture = eventFixture;
+    }
+    res.send(fixture);
 });
 
 function runPa11yTests () {
