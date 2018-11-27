@@ -1,4 +1,4 @@
-function main ({title, fixtures}) {
+function main ({title, conceptFixture}) {
 	return `
     <!DOCTYPE html>
     <html lang="en-GB">
@@ -12,10 +12,9 @@ function main ({title, fixtures}) {
 		</head>
 		<body>
 			<div class="o-grid-container">
-				<h1>Demo of n-magnet</h1>
+				<h1>${title}</h1>
 				<div class="o-grid-row demo-context__inarticle" data-o-grid-colspan="12">
-					<span>in article 'eventpromo' demo:</span>
-					<script class="js-magnet-data" type="application/json">${fixtures}</script>
+					<script class="js-magnet-data" type="application/json">${conceptFixture}</script>
 					<div class="magnet-cta js-magnet-cta"></div>
 				</div>
 			</div>

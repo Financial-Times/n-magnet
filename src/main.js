@@ -10,7 +10,14 @@ export async function magnetInit () {
         throw new Error('DOM not ready for magnet');
     }
 
-    const conceptIds = JSON.parse(magnetDataSelector.innerHTML);
+    let conceptIds;
+    try {
+        conceptIds = JSON.parse(magnetDataSelector.innerHTML);
+    }
+    catch (err) {
+        throw new Error(`failed to parse magnetDataSelector, caused by ${err.toString()}`);
+    }
+
     const validConcepts = hasValidConcepts(conceptIds) ? conceptIds : {};
 
     if (!validConcepts) {

@@ -1,0 +1,18 @@
+{
+  "type": "newsletter",
+  "data": {
+    "newsletter": {
+      "isPremium": true,
+      "referenceId": "martin_sandbus_free_lunch",
+      "unsubscribeAction": "/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/unsubscribe?redirect=/newsletters/",
+      "subscribeAction": "/__myft/api/alerts/a0000000-a0a0-0000-a000-a000a0000a00/newsletters/000000000000000000000000/subscribe?redirect=/newsletters/",
+      "id": "12345",
+      "name": "Martin Sandbu’s Free Lunch",
+      "subscriptionLevel": "Premium",
+      "inactive": false,
+      "description": "Keep up with the most important economics issues every lunchtime with Martin Sandbu’s analysis.",
+      "frequency": "daily",
+      "userIsSubscribed": false
+    }
+  }
+}
