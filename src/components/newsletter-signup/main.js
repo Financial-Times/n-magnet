@@ -5,8 +5,8 @@ export async function renderNewsletterSignup (magnetPlaceholderSelector, data) {
 
     // tracking
     dispatchTrackingEvent({
-        category: 'x-eventpromo',
+        category: 'n-newsletter-signup',
         action: 'shown',
-        eventPromoId: data.eventpromo.id
+        newsletterId: data.newsletter.id
     });
 }

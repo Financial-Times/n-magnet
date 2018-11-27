@@ -35,7 +35,7 @@ app.use((req, res, next)=> {
     }
 });
 
-app.get('/', (req, res) => {
+app.get('/magnet-demo', (req, res) => {
     res.send({
         'eventpromo-demo': `http://${demoHost}:${demoPort}/eventpromo-demo`,
         'newsletter-demo': `http://${demoHost}:${demoPort}/newsletter-demo`
