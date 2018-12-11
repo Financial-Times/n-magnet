@@ -8,6 +8,7 @@ function main ({title, conceptFixture}) {
 			<title>${title}</title>
 			<link rel="stylesheet" href="magnet-demo/static/demo.css" />
 
+            <script>var exports = {};</script>
 			<script async defer type="application/javascript" src="magnet-demo/static/demo.js"></script>
 		</head>
 		<body>

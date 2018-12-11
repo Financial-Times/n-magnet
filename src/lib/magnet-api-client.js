@@ -2,18 +2,15 @@ import * as config from './config';
 
 const magnetDataSourceUrl = config.get('magnetDataSourceUrl');
 
-export async function geDataFromApi (conceptIds = []) {
-    const requestConceptIds = {};
-    if (conceptIds) {
-        requestConceptIds.conceptIds = {
-            focus: conceptIds.focus || [],
-            speakers: conceptIds.speakers || [],
-        };
+export async function geDataFromApi (requestConceptIds = []) {
+
+    const fetchBody = {
+        conceptIds: requestConceptIds
     }
 
     try {
         const fetchResponse = await fetch(magnetDataSourceUrl, {
-            body: JSON.stringify(requestConceptIds),
+            body: JSON.stringify(fetchBody),
             headers: {
                 'accept': 'application/json',
                 'content-type': 'application/json'

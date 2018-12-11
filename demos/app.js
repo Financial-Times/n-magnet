@@ -1,4 +1,5 @@
 const express = require('@financial-times/n-internal-tool');
+const config = require('../src/lib/config')
 const conceptFixture = require('./conceptFixture.json');
 const eventFixture = require('./eventpromoFixture.json');
 const newsletterFixture = require('./newsletterFixture.json');
@@ -8,8 +9,14 @@ const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
 
-const demoPort = 5005;
-const demoHost = 'local.ft.com';
+const demoConfig = config.get('demo');
+
+const demoPort =
+    process.env.DEMO_PORT||
+    demoConfig.port;
+const demoHost =
+    process.env.DEMO_HOST||
+    demoConfig.host;
 
 const app = module.exports = express({
     name: 'public',
@@ -33,6 +40,13 @@ app.use((req, res, next)=> {
     } else {
         next();
     }
+});
+
+app.get('/', (req, res) => {
+    res.send({
+        'eventpromo-demo': `http://${demoHost}:${demoPort}/eventpromo-demo`,
+        'newsletter-demo': `http://${demoHost}:${demoPort}/newsletter-demo`
+    });
 });
 
 app.get('/magnet-demo', (req, res) => {
@@ -101,7 +115,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-const listen = app.listen(5005);
+const listen = app.listen(demoPort);
 
 if (process.env.PA11Y === 'true') {
     listen.then(runPa11yTests);

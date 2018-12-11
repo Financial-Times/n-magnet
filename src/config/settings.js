@@ -5,5 +5,9 @@ module.exports = {
         `${staticAssetsBasePath}/break_out.jpg`,
         `${staticAssetsBasePath}/audiance_clapping.jpg`
     ],
-    'magnetDataSourceUrl': '/magnet/api'
+    'magnetDataSourceUrl': '/magnet/api',
+    'demo': {
+        'host': 'local.ft.com',
+        'port': 5005
+    }
 };

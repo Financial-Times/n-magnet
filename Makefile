@@ -18,7 +18,8 @@ test-debug:
 
 demo-build:
 	rm -rf ./dist
-	@webpack --config webpack.config.js --env development --mode development
+	@webpack --config webpack.styles.config.js --env development --mode development
+	@webpack --config webpack.js.config.js --env development --mode development
 	@$(DONE)
 
 demo: demo-build
