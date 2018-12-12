@@ -6,9 +6,12 @@ function main ({title, conceptFixture}) {
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<title>${title}</title>
-			<link rel="stylesheet" href="magnet-demo/static/demo.css" />
+			<link rel="stylesheet" href="magnet-demo/static/styles/demo.css" />
 
-            <script>var exports = {};</script>
+            <script>
+                var exports = {};
+            </script>
+			<script async defer type="application/javascript" src="magnet-demo/static/styles/demo.js"></script>
 			<script async defer type="application/javascript" src="magnet-demo/static/demo.js"></script>
 		</head>
 		<body>

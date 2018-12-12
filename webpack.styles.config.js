@@ -17,7 +17,7 @@ const webpackConfigStyles = () => {
             extensions: ['.jsx', '.css', '.scss']
         },
         output: {
-            path: path.resolve(__dirname, 'dist/demo'),
+            path: path.resolve(__dirname, 'dist/demo/styles'),
         },
         module: {
             rules: [

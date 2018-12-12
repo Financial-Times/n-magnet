@@ -1,5 +1,5 @@
 const express = require('@financial-times/n-internal-tool');
-const config = require('../src/lib/config')
+const config = require('../src/lib/config');
 const conceptFixture = require('./conceptFixture.json');
 const eventFixture = require('./eventpromoFixture.json');
 const newsletterFixture = require('./newsletterFixture.json');

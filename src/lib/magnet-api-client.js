@@ -6,7 +6,7 @@ export async function geDataFromApi (requestConceptIds = []) {
 
     const fetchBody = {
         conceptIds: requestConceptIds
-    }
+    };
 
     try {
         const fetchResponse = await fetch(magnetDataSourceUrl, {

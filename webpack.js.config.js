@@ -4,7 +4,10 @@ const xEngine = require('@financial-times/x-engine/src/webpack');
 const webpackConfigJs = () => {
     return {
         entry: {
-            demo: ['./main.js', './demos/init-demo.js']
+            demo: [
+                './main.js',
+                './demos/init-demo.js'
+            ]
         },
         resolve: {
             modules: [
@@ -24,11 +27,11 @@ const webpackConfigJs = () => {
                     use: {
                         loader: 'handlebars-loader',
                         query : {
-                            "extensions" : ".html",
-                            "helperDirs" : [
-                                __dirname + "/bower_components/",
+                            'extensions' : '.html',
+                            'helperDirs' : [
+                                __dirname + '/bower_components/',
                             ],
-                            "debug" : true
+                            'debug' : true
                         }
                     },
                 },
