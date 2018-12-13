@@ -66,5 +66,5 @@ The demo will be served on port 5005, at: http://local.ft.com:5005/magnet-demo
 
 ## Notes
 When working on integration with next-article, it can be useful to tweak package.json like this:
-" use specific branch: @financial-times/n-magnet": "Financial-Times/n-magnet#magnet-api-integration",
-" use local package: @financial-times/n-magnet": "file:/home/devel/ft/n-magnet",
+- use specific branch: `@financial-times/n-magnet": "Financial-Times/n-magnet#magnet-api-integration",`
+- use local package: `@financial-times/n-magnet": "file:/home/devel/ft/n-magnet",`
