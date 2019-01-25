@@ -1,4 +1,7 @@
-{
+const config = require('../src/lib/config');
+const demoConfig = config.get('demo');
+
+module.exports = {
   "type": "eventpromo",
   "data": {
     "concepts": [
@@ -29,6 +32,6 @@
     "strapline": "Planning for Post-Brexit Growth",
     "title": "FT Brexit and Beyond Summit",
     "location": "Planet Earth",
-    "viewLink": "http://local.ft.com/eventpromo/api/save-view"
+    "viewLink": `http://${demoConfig.host}:${demoConfig.port}/eventpromo/api/save-view`
   }
-}
+};

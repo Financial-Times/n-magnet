@@ -9,7 +9,7 @@ https://docs.google.com/document/d/1nJKG7-xOzZyhKTmJMz9M2FA9P-AQgOVPZD1F_MmX3o4/
 - https://toggler.ft.com/#newsletterSignupOnArticle
 ### Related Repos
 - https://github.com/Financial-Times/next-magnet-api
-- https://github.com/Financial-Times/x-dash (for x-eventpromo)
+- https://github.com/Financial-Times/n-eventpromo
 - https://github.com/Financial-Times/n-newsletter-signup
 
 ## Using the component
