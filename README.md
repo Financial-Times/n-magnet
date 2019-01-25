@@ -69,6 +69,22 @@ make demo
 - The demo will be served on: http://{demoHost}:{demoPort}/magnet-demo
 - Example: http://local.ft.com:5005/magnet-demo
 
+## Known issues / to do
+### oGrid issue
+Demo is broken by `src/components/newsletter-signup/main.js`
+
+Error: ```main.js:14 Uncaught TypeError: oGrid.setMinSupportedIeVersion is not a function```
+
+Meaning the demo only works with eventpromo and newsletter-signup/main.js needs to be commented out...
+
+### Build process
+After some struggle with the build process, styles and js are built separately.
+
+This can probably be improved.
+
+### Prettier
+Add prettier to the project?
+
 ## Notes
 When working on integration with next-article, it can be useful to tweak package.json like this:
 - use specific branch: `@financial-times/n-magnet": "Financial-Times/n-magnet#magnet-api-integration",`
