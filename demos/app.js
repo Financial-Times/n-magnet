@@ -1,7 +1,7 @@
 const express = require('@financial-times/n-internal-tool');
 const config = require('../src/lib/config');
 const conceptFixture = require('./conceptFixture.json');
-const eventFixture = require('./eventpromoFixture.json');
+const eventFixture = require('./eventpromoFixture.js');
 const newsletterFixture = require('./newsletterFixture.json');
 const magnetTemplate = require('./templates/magnet.js');
 
@@ -84,6 +84,10 @@ app.post('/magnet/api/', (req, res) => {
         fixture = eventFixture;
     }
     res.send(fixture);
+});
+
+app.post('/eventpromo/api/save-view', (req, res) => {
+    res.send({});
 });
 
 function runPa11yTests () {

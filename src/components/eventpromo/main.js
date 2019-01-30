@@ -1,5 +1,5 @@
 import React from 'react';
-import {Eventpromo} from '@financial-times/x-eventpromo';
+import {Eventpromo} from '@financial-times/n-eventpromo';
 import xEngine from '@financial-times/x-engine';
 import {getMappedData} from './eventpromo-utils';
 import {dispatchTrackingEvent} from '../../lib/tracking';
@@ -12,7 +12,7 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
 
         // tracking
         dispatchTrackingEvent({
-            category: 'x-eventpromo',
+            category: 'n-eventpromo',
             action: 'shown',
             eventPromoId: formattedData.id
         });

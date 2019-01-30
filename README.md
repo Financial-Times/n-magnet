@@ -9,7 +9,7 @@ https://docs.google.com/document/d/1nJKG7-xOzZyhKTmJMz9M2FA9P-AQgOVPZD1F_MmX3o4/
 - https://toggler.ft.com/#newsletterSignupOnArticle
 ### Related Repos
 - https://github.com/Financial-Times/next-magnet-api
-- https://github.com/Financial-Times/x-dash (for x-eventpromo)
+- https://github.com/Financial-Times/n-eventpromo
 - https://github.com/Financial-Times/n-newsletter-signup
 
 ## Using the component
@@ -68,6 +68,22 @@ make demo
 - Demo port and host are set in config, and can be overridden via env variables.
 - The demo will be served on: http://{demoHost}:{demoPort}/magnet-demo
 - Example: http://local.ft.com:5005/magnet-demo
+
+## Known issues / to do
+### oGrid issue
+Demo is broken by `src/components/newsletter-signup/main.js`
+
+Error: ```main.js:14 Uncaught TypeError: oGrid.setMinSupportedIeVersion is not a function```
+
+Meaning the demo only works with eventpromo and newsletter-signup/main.js needs to be commented out...
+
+### Build process
+After some struggle with the build process, styles and js are built separately.
+
+This can probably be improved.
+
+### Prettier
+Add prettier to the project?
 
 ## Notes
 When working on integration with next-article, it can be useful to tweak package.json like this:
