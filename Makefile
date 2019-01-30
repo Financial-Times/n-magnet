@@ -5,7 +5,7 @@ node_modules/@financial-times/n-gage/index.mk:
 -include node_modules/@financial-times/n-gage/index.mk
 
 unit-test:
-	jest tests
+	export NODE_ENV=test && jest tests
 
 test:
 	# TODO: don't ignore a11y but don't block releasing it in it's current state
@@ -14,11 +14,12 @@ test:
 	make unit-test
 
 test-debug:
-	jest tests --coverage --debug
+	export NODE_ENV=test && jest tests --coverage --debug
 
 demo-build:
 	rm -rf ./dist
-	@webpack --config webpack.config.js --env development --mode development
+	@webpack --config webpack.styles.config.js --env development --mode development
+	@webpack --config webpack.js.config.js --env development --mode development
 	@$(DONE)
 
 demo: demo-build

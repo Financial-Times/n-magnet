@@ -1,20 +1,31 @@
 import React from 'react';
-import {Eventpromo} from '@financial-times/x-eventpromo';
+import {Eventpromo} from '@financial-times/n-eventpromo';
 import xEngine from '@financial-times/x-engine';
 import {getMappedData} from './eventpromo-utils';
 import {dispatchTrackingEvent} from '../../lib/tracking';
 
 export async function renderEventpromo (magnetPlaceholderSelector, data) {
     try {
-        const formattedData = getMappedData(data.eventpromo);
+        const formattedData = getMappedData(data);
         const promoElement = <Eventpromo isPaused={true} {...formattedData} />;
         xEngine.render(promoElement, magnetPlaceholderSelector);
 
         // tracking
         dispatchTrackingEvent({
-            category: 'x-eventpromo',
+            category: 'n-eventpromo',
             action: 'shown',
-            eventPromoId: data.eventpromo.id
+            eventPromoId: formattedData.id
+        });
+
+        // notify eventpromo-api that this event has been seen
+        const requestBody = {eventpromoId: formattedData.id};
+        await fetch(data.viewLink, {
+            body: JSON.stringify(requestBody),
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+            },
+            method: 'POST',
         });
     }
     catch (err) {

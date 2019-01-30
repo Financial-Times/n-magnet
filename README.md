@@ -2,12 +2,15 @@
 - orchestrates onward journey components (better promo, newsletters, etc)
 
 ## Documentation
+https://docs.google.com/document/d/1nJKG7-xOzZyhKTmJMz9M2FA9P-AQgOVPZD1F_MmX3o4/edit
 ### Related flags 
-- showArticleCTABloc
-- showEventPromo
-### Repos
+- https://toggler.ft.com/#showArticleCTABloc
+- https://toggler.ft.com/#showEventPromo
+- https://toggler.ft.com/#newsletterSignupOnArticle
+### Related Repos
 - https://github.com/Financial-Times/next-magnet-api
-- https://github.com/Financial-Times/x-dash
+- https://github.com/Financial-Times/n-eventpromo
+- https://github.com/Financial-Times/n-newsletter-signup
 
 ## Using the component
 ### Add the component
@@ -18,6 +21,8 @@ Some configuration variable can be overridden using ENV variables.
 |config name|env name|example|desc|
 |---|---|---|---|
 |magnetDataSourceUrl|MAGNET_DATASOURCE_URL|http://local.ft.com/magnet/api|api endpoint|
+|demo.host|DEMO_HOST|local.ft.com||
+|demo.port|DEMO_PORT|5005||
 
 ### Prepare DOM
 The component expects some elements to be present in the DOM
@@ -60,9 +65,27 @@ npm run jest
 make install
 make demo
 ```
-The demo will be served on port 5005, at: http://local.ft.com:5005/magnet-demo
+- Demo port and host are set in config, and can be overridden via env variables.
+- The demo will be served on: http://{demoHost}:{demoPort}/magnet-demo
+- Example: http://local.ft.com:5005/magnet-demo
+
+## Known issues / to do
+### oGrid issue
+Demo is broken by `src/components/newsletter-signup/main.js`
+
+Error: ```main.js:14 Uncaught TypeError: oGrid.setMinSupportedIeVersion is not a function```
+
+Meaning the demo only works with eventpromo and newsletter-signup/main.js needs to be commented out...
+
+### Build process
+After some struggle with the build process, styles and js are built separately.
+
+This can probably be improved.
+
+### Prettier
+Add prettier to the project?
 
 ## Notes
 When working on integration with next-article, it can be useful to tweak package.json like this:
-" use specific branch: @financial-times/n-magnet": "Financial-Times/n-magnet#magnet-api-integration",
-" use local package: @financial-times/n-magnet": "file:/home/devel/ft/n-magnet",
+- use specific branch: `@financial-times/n-magnet": "Financial-Times/n-magnet#magnet-api-integration",`
+- use local package: `@financial-times/n-magnet": "file:/home/devel/ft/n-magnet",`

@@ -1,6 +1,10 @@
-import settings from '../config/settings.js';
+const settings = require('../config/settings.js');
 
-export function get (key, defaultValue = null) {
+function get (key, defaultValue = null) {
 	const item = settings[key];
 	return (typeof item !== 'undefined') ? item : defaultValue;
 }
+
+module.exports = {
+    get
+};
