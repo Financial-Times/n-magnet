@@ -1,7 +1,7 @@
 {
   "name": "n-magnet",
   "dependencies": {
-    "n-newsletter-signup": "^3.2.0"
+    "n-newsletter-signup": "^4.0.0"
   },
   "resolutions": {
     "n-service-worker": "^2.0.0"
