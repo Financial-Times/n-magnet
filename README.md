@@ -1,4 +1,4 @@
-# n-magnet
+# n-magnet [![CircleCI](https://circleci.com/gh/Financial-Times/n-magnet.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-magnet)
 - orchestrates onward journey components (better promo, newsletters, etc)
 
 ## Documentation
