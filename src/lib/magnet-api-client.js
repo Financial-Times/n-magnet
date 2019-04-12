@@ -17,7 +17,10 @@ export async function geDataFromApi (requestConceptIds = []) {
             },
             method: 'POST'
         });
-
+        if (!fetchResponse.ok) {
+            const error = new Error(fetchResponse.status === 404 ? 'notFound': 'failedToGetData');
+            throw error;
+        }
         return await fetchResponse.json();
     }
     catch (err) {
