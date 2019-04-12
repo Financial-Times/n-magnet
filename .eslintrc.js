@@ -1,5 +1,5 @@
 const config = {
-    "parser": "babel-eslint",
+    'parser': 'babel-eslint',
     'env': {
         'browser': true,
         'es6': true,
