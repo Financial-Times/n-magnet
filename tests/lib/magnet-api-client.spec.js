@@ -3,7 +3,7 @@ import {geDataFromApi} from '../../src/lib/magnet-api-client';
 import conceptFixture from '../fixtures/conceptFixture';
 import * as config from '../../src/lib/config';
 
-const dataSourceUrl = process.env.MAGNET_DATASOURCE_URL || config.get('magnetDataSourceUrl');
+const dataSourceUrl = config.get('magnetDataSourceUrl');
 jest.mock('../../src/components/eventpromo/main');
 
 afterEach(() => {
