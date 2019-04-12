@@ -20,7 +20,6 @@ Some configuration variable can be overridden using ENV variables.
 
 |config name|env name|example|desc|
 |---|---|---|---|
-|magnetDataSourceUrl|MAGNET_DATASOURCE_URL|http://local.ft.com/magnet/api|api endpoint|
 |demo.host|DEMO_HOST|local.ft.com||
 |demo.port|DEMO_PORT|5005||
 
