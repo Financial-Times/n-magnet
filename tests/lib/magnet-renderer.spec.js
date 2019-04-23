@@ -3,7 +3,7 @@ it.skip('importing n-newsletter-signup breaks tests', function () {
 /*
 import {renderModule} from '../../src/lib/magnet-renderer';
 import {renderEventpromo} from '../../src/components/eventpromo/main';
-import {renderNewsletter} from '../../src/components/newsletter-signup/main';
+import {renderNewsletterSignup} from '../../src/components/newsletter-signup/main';
 
 jest.mock('../../src/components/eventpromo/main');
 jest.mock('../../src/components/newsletter-signup/main');
@@ -61,7 +61,7 @@ describe('magnet-renderer', () => {
 	describe('renderModule: newsletter', () => {
 		test('should throw error when rendering fails', async () => {
 			const fakeErrorMessage = 'Some error occurred';
-			renderNewsletter.mockImplementation(() => {
+			renderNewsletterSignup.mockImplementation(() => {
 				throw new Error(fakeErrorMessage);
 			});
 
@@ -84,7 +84,7 @@ describe('magnet-renderer', () => {
 		});
 		describe('on success', () => {
 			test('should call rendering on component with data', async () => {
-				renderNewsletter.mockImplementation(() => {
+				renderNewsletterSignup.mockImplementation(() => {
 					return true;
 				});
 
@@ -97,7 +97,7 @@ describe('magnet-renderer', () => {
 				let hasError = false;
 				try {
 					await renderModule(magnetPlaceholderSelector, magnetData);
-					expect(renderNewsletter).toBeCalledWith(magnetPlaceholderSelector, magnetData.data);
+					expect(renderNewsletterSignup).toBeCalledWith(magnetPlaceholderSelector, magnetData.data);
 				}
 				catch (err) {
 					hasError = true;
