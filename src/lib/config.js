@@ -6,5 +6,5 @@ function get (key, defaultValue = null) {
 }
 
 module.exports = {
-    get
+	get
 };
