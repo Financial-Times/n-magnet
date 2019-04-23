@@ -8,7 +8,7 @@ describe('hasValidConcepts()', () => {
 	});
 
 	test('given a concept object with invalid concept values returns false', () => {
-	    const invalidConceptObject = 'invalid';
+		const invalidConceptObject = 'invalid';
 		expect(hasValidConcepts(invalidConceptObject)).toBe(false);
 	});
 
