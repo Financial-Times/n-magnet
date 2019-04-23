@@ -1,8 +1,8 @@
 import * as config from '../../src/lib/config';
 
-jest.mock('../../src/config/settings.js', ()=>({
+jest.mock('../../src/config/settings.js', () => ({
 	someKey: 'someValue'
-}), { virtual: true });
+}), {virtual: true});
 
 describe('config', () => {
 	test('should return config value if it exists', () => {

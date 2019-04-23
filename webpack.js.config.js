@@ -26,12 +26,12 @@ const webpackConfigJs = () => {
 					test: /\.html$/,
 					use: {
 						loader: 'handlebars-loader',
-						query : {
-							'extensions' : '.html',
-							'helperDirs' : [
+						query: {
+							'extensions': '.html',
+							'helperDirs': [
 								__dirname + '/bower_components/',
 							],
-							'debug' : true
+							'debug': true
 						}
 					},
 				},

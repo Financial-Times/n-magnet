@@ -23,7 +23,7 @@ describe('magnet-renderer', () => {
 
 			let hasError = false;
 			try {
-				await renderModule(magnetPlaceholderSelector,magnetData);
+				await renderModule(magnetPlaceholderSelector, magnetData);
 			}
 			catch (err) {
 				hasError = true;
@@ -47,7 +47,7 @@ describe('magnet-renderer', () => {
 
 				let hasError = false;
 				try {
-					await renderModule(magnetPlaceholderSelector,magnetData);
+					await renderModule(magnetPlaceholderSelector, magnetData);
 					expect(renderEventpromo).toBeCalledWith(magnetPlaceholderSelector, magnetData.data);
 				}
 				catch (err) {
@@ -72,7 +72,7 @@ describe('magnet-renderer', () => {
 
 			let hasError = false;
 			try {
-				await renderModule(magnetPlaceholderSelector,magnetData);
+				await renderModule(magnetPlaceholderSelector, magnetData);
 			}
 			catch (err) {
 				hasError = true;
@@ -96,7 +96,7 @@ describe('magnet-renderer', () => {
 
 				let hasError = false;
 				try {
-					await renderModule(magnetPlaceholderSelector,magnetData);
+					await renderModule(magnetPlaceholderSelector, magnetData);
 					expect(renderNewsletter).toBeCalledWith(magnetPlaceholderSelector, magnetData.data);
 				}
 				catch (err) {
