@@ -12,10 +12,10 @@ const highlight = chalk.bold.green;
 const demoConfig = config.get('demo');
 
 const demoPort =
-	process.env.DEMO_PORT||
+	process.env.DEMO_PORT ||
 	demoConfig.port;
 const demoHost =
-	process.env.DEMO_HOST||
+	process.env.DEMO_HOST ||
 	demoConfig.host;
 
 const app = module.exports = express({
@@ -34,12 +34,12 @@ const app = module.exports = express({
 });
 
 //ignore favicon request for demo
-app.use((req, res, next)=> {
-		if (req.originalUrl === '/favicon.ico') {
-				res.status(204).json({nope: true});
-		} else {
-				next();
-		}
+app.use((req, res, next) => {
+	if (req.originalUrl === '/favicon.ico') {
+		res.status(204).json({nope: true});
+	} else {
+		next();
+	}
 });
 
 app.get('/', (req, res) => {
