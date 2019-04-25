@@ -28,6 +28,14 @@ function main ({title, conceptFixture}) {
 					<script class="js-magnet-data" type="application/json">${conceptFixture}</script>
 					<div class="magnet-cta js-magnet-cta"></div>
 				</div>
+				<div class="magnet-filler">
+					^^^^^
+					<br>
+					This is a filler needed to see the IntersectionObserver in action. <br>
+					Scroll up to see the eventpromo above.<br>
+					The "save view" call should only kick in when the eventpromo is in view <br>
+					<br>
+				</div>
 			</div>
 		</body>
 	</html>
