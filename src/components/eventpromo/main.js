@@ -4,16 +4,14 @@ import xEngine from '@financial-times/x-engine';
 import {getMappedData} from './eventpromo-utils';
 import {dispatchTrackingEvent} from '../../lib/tracking';
 
-async function saveView (viewLink, formattedData) {
+async function saveView (viewLink) {
 	// notify eventpromo-api that this event has been seen
-	const requestBody = {eventpromoId: formattedData.id};
 	await fetch(viewLink, {
-		body: JSON.stringify(requestBody),
 		headers: {
 			accept: 'application/json',
 			'content-type': 'application/json',
 		},
-		method: 'POST',
+		method: 'PATCH',
 	});
 }
 
@@ -40,7 +38,12 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
 			const observer = new IntersectionObserver((entries, observer) => {
 				entries.forEach(async function (entry) {
 					if (entry.isIntersecting || entry.intersectionRatio > 0) {
-						await saveView(viewLink, formattedData);
+						try {
+							await saveView(viewLink);
+						}
+						catch (error) {
+							// fail silently
+						}
 						observer.unobserve(entry.target);
 					}
 				});
