@@ -11,7 +11,7 @@ async function saveView (viewLink) {
 			accept: 'application/json',
 			'content-type': 'application/json',
 		},
-		method: 'PATCH',
+		method: 'POST',
 	});
 }
 
