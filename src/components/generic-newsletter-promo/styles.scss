@@ -1,0 +1,82 @@
+.n-newsletter-promo {
+	max-width: 700px;
+	margin-bottom: 50px;
+	margin-top: 30px;
+	display: flex;
+
+	@include oGridRespondTo($until: S) {
+		flex-wrap: wrap-reverse;
+	}
+
+	&__left {
+		flex-basis: 58%;
+		flex-shrink: 0;
+
+		@include oGridRespondTo($until: S) {
+			width: auto;
+			margin: -10px 10px;
+			flex-grow: 1;
+		}
+	}
+
+	&__right {
+		flex-shrink: 1;
+		flex-grow: 1;
+		min-width: 100px;
+		position: relative;
+		height: 226px;
+
+		@include oGridRespondTo($until: S) {
+			width: 100%;
+			flex-shrink: 0;
+		}
+	}
+
+	&__content {
+		background-color: rgba(38, 42, 51, 0.9);
+		z-index: 1;
+		position: relative;
+		color: white;
+		padding: 20px;
+	}
+
+	&__media {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: #cc1452;
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/https://www.ft.com/__assets/creatives/us-newsletter-promo.jpg?source=n-magnet');
+		height: 100%;
+		width: 399px;
+
+		@include oGridRespondTo($until: S) {
+			width: 100%;
+		}
+	}
+
+	&__title {
+		font-family: FinancierDisplayWeb, serif;
+		font-size: 40px;
+		line-height: 40px;
+		font-weight: 700;
+		margin: 0 0 8px;
+	}
+
+	&__blurb {
+		font-family: MetricWeb, sans-serif;
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 300;
+		width: 50%;
+
+		@include oGridRespondTo($until: S) {
+			width: 100%;
+		}
+	}
+
+	// &__btn {
+	// 	@include oButtons();
+	// 	@include oButtonsSize(big);
+	// 	@include oButtonsTheme(secondary);
+	// }
+}
