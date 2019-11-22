@@ -1,4 +1,4 @@
-import newsletterSignup from 'n-newsletter-signup/js/main';
+import * as newsletterSignup from 'n-newsletter-signup';
 import mainTemplate from 'n-newsletter-signup/templates/simple.html';
 import {dispatchTrackingEvent} from '../../lib/tracking';
 
