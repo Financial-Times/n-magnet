@@ -1,4 +1,4 @@
-const fetchMock = require('fetch-mock');
+import fetchMock from 'fetch-mock';
 import {geDataFromApi} from '../../src/lib/magnet-api-client';
 import conceptFixture from '../fixtures/conceptFixture';
 import * as config from '../../src/lib/config';
