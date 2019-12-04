@@ -1,10 +1,10 @@
-import oDate from 'o-date';
+import ftDateFormat from '@financial-times/ft-date-format';
 import * as config from '../../lib/config';
 
-function getFormattedDate (theEvent) {
-	const year = oDate.format(theEvent.scheduledStartTime, 'yyyy');
-	const eventStart = oDate.format(theEvent.scheduledStartTime, 'dd MMMM');
-	const eventEnd = oDate.format(theEvent.scheduledEndTime, 'dd MMMM');
+export function getFormattedDate (theEvent) {
+	const year = ftDateFormat.format(theEvent.scheduledStartTime, 'yyyy');
+	const eventStart = ftDateFormat.format(theEvent.scheduledStartTime, 'dd MMMM');
+	const eventEnd = ftDateFormat.format(theEvent.scheduledEndTime, 'dd MMMM');
 	if (eventStart === eventEnd) {
 		return `${eventStart} ${year}`;
 	} else {
