@@ -58,7 +58,7 @@
     "@financial-times/n-eventpromo": "^6.0.0-beta.1",
     "handlebars-loader": "^1.7.0",
     "js-cookie": "^2.2.0",
-    "o-date": "git+https://github.com/Financial-Times/o-date.git#v1.2.2",
+    "@financial-times/ft-date-format": "^1.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
