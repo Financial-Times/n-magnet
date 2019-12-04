@@ -1,5 +1,3 @@
-import {magnetInit} from './src/main';
+import { magnetInit } from './src/main';
 
-module.exports = {
-	magnetInit,
-};
+export { magnetInit } 
