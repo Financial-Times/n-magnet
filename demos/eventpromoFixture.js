@@ -1,5 +1,7 @@
-const config = require('../src/lib/config');
-const demoConfig = config.get('demo');
+const demoConfig = {
+	host: 'local.ft.com',
+	port: 5005
+};
 
 module.exports = {
 	'type': 'eventpromo',

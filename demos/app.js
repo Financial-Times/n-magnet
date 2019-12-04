@@ -1,5 +1,4 @@
 const express = require('@financial-times/n-internal-tool');
-const config = require('../src/lib/config');
 const conceptFixture = require('./conceptFixture.json');
 const eventFixture = require('./eventpromoFixture.js');
 const newsletterFixture = require('./newsletterFixture.json');
@@ -9,7 +8,10 @@ const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
 
-const demoConfig = config.get('demo');
+const demoConfig = {
+	host: 'local.ft.com',
+	port: 5005
+};
 
 const demoPort =
 	process.env.DEMO_PORT ||
