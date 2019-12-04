@@ -1,7 +1,6 @@
 const express = require('@financial-times/n-internal-tool');
-const config = require('../src/lib/config');
 const conceptFixture = require('./conceptFixture.json');
-const eventFixture = require('./eventpromoFixture.js');
+const eventFixture = require('./eventpromoFixture.json');
 const newsletterFixture = require('./newsletterFixture.json');
 const magnetTemplate = require('./templates/magnet.js');
 
@@ -9,14 +8,8 @@ const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
 
-const demoConfig = config.get('demo');
-
-const demoPort =
-	process.env.DEMO_PORT ||
-	demoConfig.port;
-const demoHost =
-	process.env.DEMO_HOST ||
-	demoConfig.host;
+const demoPort = 5005;
+const demoHost = 'local.ft.com';
 
 const app = module.exports = express({
 	name: 'public',
