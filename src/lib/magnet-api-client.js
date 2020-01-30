@@ -24,6 +24,7 @@ export async function geDataFromApi (requestConceptIds = []) {
 		return await fetchResponse.json();
 	}
 	catch (err) {
-		throw new Error(`failed to get magnet data from api, cause: ${err.toString()}`);
+		err.message = `failed to get magnet data from api, cause: ${err.message}`;
+		throw err;
 	}
 }

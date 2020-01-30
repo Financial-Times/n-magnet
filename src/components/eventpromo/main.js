@@ -52,6 +52,7 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
 		}, false);
 	}
 	catch (err) {
-		throw new Error(`failed to render eventpromo, cause: ${err.toString()}`);
+		err.message = `failed to render eventpromo, cause: ${err.message}`;
+		throw err;
 	}
 }
