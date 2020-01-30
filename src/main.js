@@ -39,7 +39,7 @@ export async function magnetInit () {
 		await renderModule(magnetPlaceholderSelector, magnetData);
 	}
 	catch (err) {
-		err.message = 'failedMagnetInit, caused by ' + err.message();
+		err.message = `failedMagnetInit, caused by ${err.message}`;
 		throw err;
 	}
 }
