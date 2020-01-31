@@ -1,6 +1,6 @@
-import React from 'react';
+/** @jsx h */
 import {Eventpromo} from '@financial-times/n-eventpromo';
-import xEngine from '@financial-times/x-engine';
+import {h, render} from '@financial-times/x-engine';
 import {getMappedData} from './eventpromo-utils';
 import {dispatchTrackingEvent} from '../../lib/tracking';
 
@@ -20,7 +20,7 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
 		const formattedData = getMappedData(data);
 		const promoElement = <Eventpromo isPaused={true} {...formattedData} />;
 		const viewLink = data.viewLink;
-		xEngine.render(promoElement, magnetPlaceholderSelector);
+		render(promoElement, magnetPlaceholderSelector);
 
 		// tracking
 		dispatchTrackingEvent({
