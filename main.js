@@ -1,3 +1,3 @@
 import { magnetInit } from './src/main';
 
-export { magnetInit } 
+export { magnetInit }; 
