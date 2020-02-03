@@ -63,13 +63,6 @@ app.get('/newsletter-demo', (req, res) => {
 	}));
 });
 
-app.get('/generic-newsletter-promo', (req, res) => {
-	res.send(magnetTemplate({
-		title: 'Test magnet app: generic newsletter promo',
-		conceptFixture: JSON.stringify(conceptFixture),
-	}));
-});
-
 app.use('/magnet-demo/static', express.static('dist/demo'));
 
 //Mock api requestS
@@ -77,11 +70,10 @@ app.post('/magnet/api/', (req, res) => {
 	const referer = req.header('Referer');
 
 	let fixture;
-	if (referer.indexOf('generic-newsletter') > 1) {
-		fixture = { type: 'usNewsletterPromo' };
-	} else if (referer.indexOf('newsletter') > 1) {
+	if (referer.indexOf('newsletter') > 1) {
 		fixture = newsletterFixture;
-	} else {
+	}
+	else {
 		fixture = eventFixture;
 	}
 	res.send(fixture);
