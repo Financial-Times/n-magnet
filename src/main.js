@@ -15,7 +15,8 @@ export async function magnetInit () {
 		conceptIds = JSON.parse(magnetDataSelector.innerHTML);
 	}
 	catch (err) {
-		throw new Error(`failed to parse magnetDataSelector, caused by ${err.toString()}`);
+		err.message = `failed to parse magnetDataSelector, caused by ${err.message}`;
+		throw err;
 	}
 
 	const validConcepts = hasValidConcepts(conceptIds) ? conceptIds : {};
@@ -30,13 +31,15 @@ export async function magnetInit () {
 		magnetData = await geDataFromApi(validConcepts);
 	}
 	catch (err) {
-		throw new Error(`error on geDataFromApi, caused by ${err.toString()}`);
+		err.message = `error on geDataFromApi, caused by ${err.message}`;
+		throw err;
 	}
 
 	try {
 		await renderModule(magnetPlaceholderSelector, magnetData);
 	}
 	catch (err) {
-		throw new Error('failedMagnetInit, caused by ' + err.toString());
+		err.message = `failedMagnetInit, caused by ${err.message}`;
+		throw err;
 	}
 }

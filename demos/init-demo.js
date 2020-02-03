@@ -16,7 +16,8 @@ async function init () {
 		await magnetInit(document);
 	}
 	catch (err) {
-		throw new Error(`failed to initialise magnet, ${err.toString()}`);
+		err.message = `failed to initialise magnet, ${err.message}`;
+		throw err;
 	}
 }
 

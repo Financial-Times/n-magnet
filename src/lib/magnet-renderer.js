@@ -15,6 +15,7 @@ export async function renderModule (magnetPlaceholderSelector, magnetData) {
 		}
 	}
 	catch (err) {
-		throw new Error(`magnet failed to load module of type ${magnetData.type}, cause: ${err.toString()}`);
+		err.message = `magnet failed to load module of type ${magnetData.type}, cause: ${err.message}`;
+		throw err;
 	}
 }
