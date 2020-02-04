@@ -1,6 +1,5 @@
 import {renderEventpromo} from '../components/eventpromo/main';
 import {renderNewsletterSignup} from '../components/newsletter-signup/main';
-import {renderGenericNewsletterPromo} from '../components/generic-newsletter-promo/main';
 
 export async function renderModule (magnetPlaceholderSelector, magnetData) {
 	try {
@@ -9,9 +8,6 @@ export async function renderModule (magnetPlaceholderSelector, magnetData) {
 		}
 		else if (magnetData.type === 'newsletter') {
 			await renderNewsletterSignup(magnetPlaceholderSelector, magnetData.data);
-		}
-		else if (magnetData.type === 'usNewsletterPromo') {
-			await renderGenericNewsletterPromo(magnetPlaceholderSelector);
 		}
 	}
 	catch (err) {
