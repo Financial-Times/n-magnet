@@ -15,7 +15,7 @@ function main ({title, conceptFixture}) {
 			<script async defer type="application/javascript" src="magnet-demo/static/demo.js"></script>
 		</head>
 		<body>
-			<div class="o-grid-container">
+			<div class="o-grid-container o-grid-container--snappy">
 				<h1>${title}</h1>
 				<div class="magnet-filler">
 					This is a filler needed to see the IntersectionObserver in action. <br>
