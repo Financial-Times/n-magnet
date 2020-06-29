@@ -59,9 +59,11 @@ npm run jest
 make install
 make demo
 ```
-- Demo port and host are set in config, and can be overridden via env variables.
-- The demo will be served on: http://{demoHost}:{demoPort}/magnet-demo
-- Example: http://local.ft.com:5005/magnet-demo
+
+You can then visit local demonstration pages:
+
+- [eventpromo-demo](http://localhost:5005/eventpromo-demo)
+- [newsletter-demo](http://localhost:5005/newsletter-demo)
 
 ## Known issues / to do
 ### oGrid issue

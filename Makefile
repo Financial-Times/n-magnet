@@ -8,8 +8,6 @@ unit-test:
 	export NODE_ENV=test && jest tests
 
 test:
-	# TODO: don't ignore a11y but don't block releasing it in it's current state
-	export IGNORE_A11Y=true; \
 	make verify
 	make unit-test
 
