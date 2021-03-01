@@ -15,12 +15,16 @@
     "displayStartTime": "2018-05-15T07:00:00.000Z",
     "eventUrl": "https://live.ft.com/Events/2018/FT-Brexit-and-Beyond-Summit",
     "id": "f17e63fd1eda51789dc5e6bdd8e3dfae",
-    "imageUrl": "https://live.ft.com/var/ftlive/storage/images/events/2018/ft-brexit-and-beyond-summit/888258-7-eng-GB/FT-Brexit-and-Beyond-Summit.png",
+    "imageUrl": "https://res.cloudinary.com/bizzaboprod/image/upload/q_auto:best,c_crop,g_custom/v1612185684/job3hld3wdyvh60jo3qk.jpg",
     "lastUpdate": "1525098575",
     "scheduledEndTime": "2018-11-14T18:00:00.000Z",
     "scheduledStartTime": "2018-11-12T07:00:00.000Z",
     "score": 0,
-    "sectorTags": ["Boris", "May", "Junker"],
+    "sectorTags": [
+      "Boris",
+      "May",
+      "Junker"
+    ],
     "segmentId": "11259aab-28bd-cf0b-29c5-d6cde7eeac80",
     "strapline": "Planning for Post-Brexit Growth",
     "title": "FT Brexit and Beyond Summit",
