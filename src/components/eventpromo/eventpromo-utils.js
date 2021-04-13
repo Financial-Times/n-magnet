@@ -1,10 +1,10 @@
 import ftDateFormat from '@financial-times/ft-date-format';
 import * as config from '../../lib/config';
 
-export function getFormattedDate (theEvent) {
-	const year = ftDateFormat.format(theEvent.scheduledStartTime, 'yyyy');
-	const eventStart = ftDateFormat.format(theEvent.scheduledStartTime, 'dd MMMM');
-	const eventEnd = ftDateFormat.format(theEvent.scheduledEndTime, 'dd MMMM');
+export function getFormattedDate(event) {
+	const year = ftDateFormat.format(event.scheduledStartTime, 'yyyy');
+	const eventStart = ftDateFormat.format(event.scheduledStartTime, 'dd MMMM');
+	const eventEnd = ftDateFormat.format(event.scheduledEndTime, 'dd MMMM');
 	if (eventStart === eventEnd) {
 		return `${eventStart} ${year}`;
 	} else {
@@ -12,17 +12,18 @@ export function getFormattedDate (theEvent) {
 	}
 }
 
-export function getMappedData (theEvent) {
-	const eventUrl = new URL(theEvent.eventUrl);
-	eventUrl.searchParams.set('segmentId', theEvent.segmentId);
+export function getMappedData(event) {
+	const eventUrl = new URL(event.eventUrl);
+	eventUrl.searchParams.set('segmentId', event.segmentId);
 	return {
-		dates: getFormattedDate(theEvent),
-		id: theEvent.id,
-		imageUrl: theEvent.imageUrl || config.get('eventpromoDefaultImage'),
+		id: event.id,
+		brand: event.brand,
+		title: event.title,
+		strapline: event.strapline,
+		dates: getFormattedDate(event),
+		location: event.location,
 		link: eventUrl.toString(),
-		location: theEvent.location,
-		segmentId: theEvent.segmentId,
-		strapline: theEvent.strapline,
-		title: theEvent.title
+		imageUrl: event.imageUrl || config.get('eventpromoDefaultImage'),
+		segmentId: event.segmentId
 	};
 }

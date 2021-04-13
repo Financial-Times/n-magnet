@@ -26,30 +26,32 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
 		dispatchTrackingEvent({
 			category: 'n-eventpromo',
 			action: 'shown',
+			brand: formattedData.brand,
 			eventPromoId: formattedData.id
 		});
 
-		window.addEventListener('load', () => {
-			const target = document.querySelector('.js-magnet-cta');
-			const options = {
-				root: null,
-				threshold: 0.5
-			};
-			const observer = new IntersectionObserver((entries, observer) => {
-				entries.forEach(async function (entry) {
-					if (entry.isIntersecting || entry.intersectionRatio > 0) {
-						try {
-							await saveView(viewLink);
+		if (viewLink) {
+			window.addEventListener('load', () => {
+				const target = document.querySelector('.js-magnet-cta');
+				const options = {
+					root: null,
+					threshold: 0.5
+				};
+				const observer = new IntersectionObserver((entries, observer) => {
+					entries.forEach(async function (entry) {
+						if (entry.isIntersecting || entry.intersectionRatio > 0) {
+							try {
+								await saveView(viewLink);
+							} catch (error) {
+								// fail silently
+							}
+							observer.unobserve(entry.target);
 						}
-						catch (error) {
-							// fail silently
-						}
-						observer.unobserve(entry.target);
-					}
-				});
-			}, options);
-			observer.observe(target);
-		}, false);
+					});
+				}, options);
+				observer.observe(target);
+			}, false);
+		}
 	}
 	catch (err) {
 		err.message = `failed to render eventpromo, cause: ${err.message}`;
