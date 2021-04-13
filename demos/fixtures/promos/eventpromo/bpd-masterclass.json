@@ -1,0 +1,20 @@
+{
+  "type": "eventpromo",
+  "data": {
+    "brand": "ft-bdp:masterclass",
+    "concepts": [],
+    "description": "The third course in a series of half-day workshops designed for professionals with board experience who are interested in staying up to date with the latest developments which affect their board roles.",
+    "displayStartTime": "2019-05-01T00:00:00.000Z",
+    "eventUrl": "https://bdp.ft.com/Masterclass/The-Board-Masterclass-International-Board-Dynamics-Tuesday-01-October-2019-12-30-00-pm",
+    "id": "bdp-masterclass-the-board-masterclass-international-board-dynamics",
+    "imageUrl": "https://bdp.ft.com/var/ezdemo_site/storage/images/media/ned-media/ned-images/event-header-images/the-board-masterclass/9270-1-eng-GB/The-Board-Masterclass_event_large.jpg",
+    "scheduledEndTime": "2019-10-01T18:00:00.000Z",
+    "scheduledStartTime": "2019-10-01T13:00:00.000Z",
+    "score": 0,
+    "sectorTags": [],
+    "segmentId": "example-segment-id",
+    "strapline": "For professionals with board experience interested in staying up to date.",
+    "title": "The Board Masterclass - International Board Dynamics",
+    "location": "United Kingdom"
+  }
+}

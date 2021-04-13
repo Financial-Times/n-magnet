@@ -3,20 +3,21 @@ function main ({title, conceptFixture}) {
 		<!DOCTYPE html>
 		<html lang="en-GB">
 		<head>
-			<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta charset="utf-8"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 			<title>${title}</title>
-			<link rel="stylesheet" href="magnet-demo/static/styles/demo.css" />
+			<link rel="stylesheet" href="/magnet-demo/static/styles/demo.css" />
 
 			<script>
 				var exports = {};
 			</script>
-			<script async defer type="application/javascript" src="magnet-demo/static/styles/demo.js"></script>
-			<script async defer type="application/javascript" src="magnet-demo/static/demo.js"></script>
+			<script async defer type="application/javascript" src="/magnet-demo/static/styles/demo.js"></script>
+			<script async defer type="application/javascript" src="/magnet-demo/static/demo.js"></script>
 		</head>
 		<body>
 			<div class="o-grid-container o-grid-container--snappy">
 				<h1>${title}</h1>
+				<a href='../'> Back</a>
 				<div class="magnet-filler">
 					This is a filler needed to see the IntersectionObserver in action. <br>
 					Scroll down to see the eventpromo below.<br>

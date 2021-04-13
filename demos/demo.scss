@@ -3,6 +3,10 @@ $system-code: n-magnet-demo;
 @import '../node_modules/@financial-times/n-eventpromo/dist/Eventpromo';
 @import 'n-newsletter-signup/main';
 
+html {
+	background-color: #fff1e5;
+}
+
 .magnet-filler {
 	height: 1000px;
 }

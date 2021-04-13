@@ -1,0 +1,20 @@
+{
+  "type": "eventpromo",
+  "data": {
+    "brand": "ft-bdp:diploma",
+    "concepts": [],
+    "description": "The FT Non-Executive Director Diploma is a formally  accredited, post-graduate qualification for Non-Executive Directors. Completed over six months, this course will equip you with the core knowledge and confidence to succeed as a Non-Executive Director.",
+    "displayStartTime": "2020-05-01T00:00:00.000Z",
+    "eventUrl": "https://bdp.ft.com/Diploma/FT-Non-Executive-Director-Diploma-Cohort-43-Tuesday-23-February-2021-9-00-00-am",
+    "id": "ft-non-executive-director-diploma-cohort-43-tuesday-23-february-2021-9-00-00-am",
+    "imageUrl": "https://bdp.ft.com/var/ezdemo_site/storage/images/media/ned-media/ned-images/event-header-images/new-branding/diploma-uk-3/6647-1-eng-GB/Diploma-UK-3_event_large.jpg",
+    "scheduledEndTime": "2021-02-23T18:00:00.000Z",
+    "scheduledStartTime": "2021-02-23T13:00:00.000Z",
+    "score": 0,
+    "sectorTags": [],
+    "segmentId": "example-segment-id",
+    "strapline": "A formally  accredited, post-graduate qualification for Non-Executive Directors",
+    "title": "FT Non-Executive Director Diploma - Cohort 43",
+    "location": "United Kingdom"
+  }
+}
