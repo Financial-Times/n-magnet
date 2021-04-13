@@ -3,7 +3,6 @@ import {Forumpromo} from '@financial-times/n-eventpromo';
 import {h, render} from '@financial-times/x-engine';
 import {dispatchTrackingEvent} from '../../lib/tracking';
 
-
 export function renderForumpromo(magnetPlaceholderSelector, data) {
 	try {
 		const promoElement = <Forumpromo {...data} />;

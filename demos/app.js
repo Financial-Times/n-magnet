@@ -1,15 +1,15 @@
 const express = require('@financial-times/n-internal-tool');
-const conceptFixture = require('./conceptFixture.json');
-const eventFixture = require('./eventpromoFixture.json');
-const newsletterFixture = require('./newsletterFixture.json');
+const conceptFixture = require('./fixtures/concept.json');
+const newsletterFixture = require('./fixtures/promos/newsletter.json');
+const forumFixture = require('./fixtures/promos/forumpromo.json');
 const magnetTemplate = require('./templates/magnet.js');
+const homeTemplate = require('./templates/home');
 
 const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
 
 const demoPort = 5005;
-const demoHost = 'local.ft.com';
 
 const app = module.exports = express({
 	name: 'public',
@@ -26,6 +26,14 @@ const app = module.exports = express({
 	s3o: false
 });
 
+const eventPromoFixtures = {
+	'ft-live': require('./fixtures/promos/eventpromo/ft-live.json'),
+	'ft-forums': require('./fixtures/promos/eventpromo/ft-forums.json'),
+	'ft-bdp:workshop': require('./fixtures/promos/eventpromo/bpd-workshop.json'),
+	'ft-bdp:diploma': require('./fixtures/promos/eventpromo/bpd-diploma.json'),
+	'ft-bdp:masterclass': require('./fixtures/promos/eventpromo/bpd-masterclass.json')
+};
+
 //ignore favicon request for demo
 app.use((req, res, next) => {
 	if (req.originalUrl === '/favicon.ico') {
@@ -35,26 +43,33 @@ app.use((req, res, next) => {
 	}
 });
 
+const demoUrls = {
+	...Object.keys(eventPromoFixtures).reduce((acc, brand) => ({
+		...acc,
+		[`${brand} eventpromo`]: `/eventpromo-demo/${brand}`
+	}), {}),
+	'forumpromo': '/forumpromo-demo',
+	'newsletterpromo': '/newsletter-demo'
+};
+
 app.get('/', (req, res) => {
-	res.send({
-		'eventpromo-demo': `http://${demoHost}:${demoPort}/eventpromo-demo`,
-		'newsletter-demo': `http://${demoHost}:${demoPort}/newsletter-demo`
-	});
+	res.send(homeTemplate({demoUrls}));
 });
 
-app.get('/magnet-demo', (req, res) => {
-	res.send({
-		'eventpromo-demo': `http://${demoHost}:${demoPort}/eventpromo-demo`,
-		'newsletter-demo': `http://${demoHost}:${demoPort}/newsletter-demo`
-	});
-});
-
-app.get('/eventpromo-demo', (req, res) => {
+app.get('/eventpromo-demo/:brand', (req, res) => {
 	res.send(magnetTemplate({
-		title: 'Test magnet app: eventpromo',
+		title: `Test magnet app: ${req.params.brand} eventpromo`,
 		conceptFixture: JSON.stringify(conceptFixture)
 	}));
 });
+
+app.get('/forumpromo-demo', (req, res) => {
+	res.send(magnetTemplate({
+		title: 'Test magnet app: forumpromo',
+		conceptFixture: JSON.stringify(conceptFixture)
+	}));
+});
+
 
 app.get('/newsletter-demo', (req, res) => {
 	res.send(magnetTemplate({
@@ -70,12 +85,15 @@ app.post('/magnet/api/', (req, res) => {
 	const referer = req.header('Referer');
 
 	let fixture;
-	if (referer.indexOf('newsletter') > 1) {
+	if (referer.includes('forumpromo-demo')) {
+		fixture = forumFixture;
+	} else if (referer.includes('eventpromo-demo')) {
+		const brand = referer.split('/').reverse()[0];
+		fixture = eventPromoFixtures[brand];
+	} else {
 		fixture = newsletterFixture;
 	}
-	else {
-		fixture = eventFixture;
-	}
+
 	res.send(fixture);
 });
 
@@ -83,7 +101,7 @@ app.post('/eventpromo/api/save-view', (req, res) => {
 	res.send({});
 });
 
-function runPa11yTests () {
+function runPa11yTests() {
 	const spawn = require('child_process').spawn;
 	const pa11y = spawn('pa11y-ci');
 
