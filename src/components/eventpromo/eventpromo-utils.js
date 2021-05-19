@@ -2,6 +2,7 @@ import ftDateFormat from '@financial-times/ft-date-format';
 import * as config from '../../lib/config';
 
 export function getFormattedDate(event) {
+	if (!event.scheduledStartTime || !event.scheduledEndTime) return;
 	const year = ftDateFormat.format(event.scheduledStartTime, 'yyyy');
 	const eventStart = ftDateFormat.format(event.scheduledStartTime, 'dd MMMM');
 	const eventEnd = ftDateFormat.format(event.scheduledEndTime, 'dd MMMM');

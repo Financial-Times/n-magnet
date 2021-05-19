@@ -1,0 +1,16 @@
+{
+  "type": "eventpromo",
+  "data": {
+    "brand": "ft-bdp:online-course",
+    "concepts": [],
+    "description": "An online course looking at the role of the board member, considering board structure, the specific duties and liabilities associated with being a director and the importance of corporate governance.",
+    "eventUrl": "https://bdp.ft.com/Director-Online/The-Role-of-a-Board-Member",
+    "id": "bdp-online-course-the-role-of-a-board-member",
+    "score": 0,
+    "sectorTags": [],
+    "segmentId": "example-segment-id",
+    "strapline": "An online course looking at the role of the board member, considering board structure, the specific duties and liabilities associated with being a director and the importance of corporate governance.",
+    "title": "The Role of a Board Member",
+    "location": "eLearning"
+  }
+}

@@ -31,7 +31,8 @@ const eventPromoFixtures = {
 	'ft-forums': require('./fixtures/promos/eventpromo/ft-forums.json'),
 	'ft-bdp:workshop': require('./fixtures/promos/eventpromo/bpd-workshop.json'),
 	'ft-bdp:diploma': require('./fixtures/promos/eventpromo/bpd-diploma.json'),
-	'ft-bdp:masterclass': require('./fixtures/promos/eventpromo/bpd-masterclass.json')
+	'ft-bdp:masterclass': require('./fixtures/promos/eventpromo/bpd-masterclass.json'),
+	'ft-bdp:online-course': require('./fixtures/promos/eventpromo/bpd-online-course.json')
 };
 
 //ignore favicon request for demo
