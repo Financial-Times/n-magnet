@@ -1,4 +1,4 @@
-function main({demoUrls}) {
+function main ({demoUrls}) {
     return `
 		<!DOCTYPE html>
 		<html lang="en-GB">
@@ -6,7 +6,7 @@ function main({demoUrls}) {
 			<meta charset="utf-8"/>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 			<title>n-magnet demo</title>
-			<link rel="stylesheet" href="/magnet-demo/static/styles/demo.css" />
+			<link rel="stylesheet" href="/magnet-demo/static/styles.css" />
 		</head>
 		<body>
 			<div class="o-grid-container o-grid-container--snappy">
