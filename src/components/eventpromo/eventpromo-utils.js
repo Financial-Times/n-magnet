@@ -16,14 +16,14 @@ export function getMappedData(event) {
 	const eventUrl = new URL(event.eventUrl);
 	eventUrl.searchParams.set('segmentId', event.segmentId);
 	return {
-        id: event.id,
-        brand: event.brand,
-        title: event.title,
-        strapline: event.strapline,
-        dates: getFormattedDate(event),
-        location: event.location,
-        link: eventUrl.toString(),
-        imageUrl: event.imageUrl,
-        segmentId: event.segmentId
-    };
+		id: event.id,
+		brand: event.brand,
+		title: event.title,
+		strapline: event.strapline,
+		dates: getFormattedDate(event),
+		location: event.location,
+		link: eventUrl.toString(),
+		imageUrl: event.imageUrl,
+		segmentId: event.segmentId
+	};
 }
