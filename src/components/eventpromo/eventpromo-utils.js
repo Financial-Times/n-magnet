@@ -1,7 +1,7 @@
 import ftDateFormat from '@financial-times/ft-date-format';
-import * as config from '../../lib/config';
 
 export function getFormattedDate(event) {
+	if (!event.scheduledStartTime || !event.scheduledEndTime) return;
 	const year = ftDateFormat.format(event.scheduledStartTime, 'yyyy');
 	const eventStart = ftDateFormat.format(event.scheduledStartTime, 'dd MMMM');
 	const eventEnd = ftDateFormat.format(event.scheduledEndTime, 'dd MMMM');
@@ -23,7 +23,7 @@ export function getMappedData(event) {
 		dates: getFormattedDate(event),
 		location: event.location,
 		link: eventUrl.toString(),
-		imageUrl: event.imageUrl || config.get('eventpromoDefaultImage'),
+		imageUrl: event.imageUrl,
 		segmentId: event.segmentId
 	};
 }
