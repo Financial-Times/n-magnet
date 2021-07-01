@@ -1,6 +1,6 @@
 {
   "name": "n-magnet",
   "dependencies": {
-    "n-newsletter-signup": "^6.0.0"
+    "n-newsletter-signup": "^7.0.0"
   }
 }
