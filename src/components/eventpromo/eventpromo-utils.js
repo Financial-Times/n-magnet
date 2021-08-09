@@ -14,7 +14,7 @@ export function getFormattedDate(event) {
 
 export function getMappedData(event) {
 	const eventUrl = new URL(event.eventUrl);
-	eventUrl.searchParams.set('segmentId', event.segmentId);
+	eventUrl.searchParams.set('segmentId', 'a3ced873-2d86-959c-46de-b9eab4c8f8d0');
 	return {
 		id: event.id,
 		brand: event.brand,
