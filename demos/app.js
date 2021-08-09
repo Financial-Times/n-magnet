@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 const demoUrls = {
 	...Object.keys(eventPromoFixtures).reduce((acc, brand) => ({
 		...acc,
-		[`${brand} eventpromo`]: `/eventpromo-demo/${brand}`
+		[`${brand} eventpromo`]: `/eventpromo-demo/${brand}?segmentId=${eventPromoFixtures[brand].data.segmentId}`
 	}), {}),
 	'forumpromo': '/forumpromo-demo',
 	'newsletterpromo': '/newsletter-demo'
