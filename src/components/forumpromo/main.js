@@ -9,6 +9,7 @@ export function renderForumpromo (magnetPlaceholderSelector, data) {
 	try {
 		const forumUrl = new URL(data.link);
 		forumUrl.searchParams.set('segmentId', segmentId);
+		data.link = forumUrl.href;
 		const promoElement = <Forumpromo {...data} />;
 		render(promoElement, magnetPlaceholderSelector);
 
