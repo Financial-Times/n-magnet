@@ -27,7 +27,8 @@ export async function renderEventpromo (magnetPlaceholderSelector, data) {
 			category: 'n-eventpromo',
 			action: 'shown',
 			brand: formattedData.brand,
-			eventPromoId: formattedData.id
+			eventPromoId: formattedData.id,
+			segmentId: formattedData.segmentId
 		});
 
 		if (viewLink) {
