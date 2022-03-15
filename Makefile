@@ -23,11 +23,6 @@ demo-build:
 demo: demo-build
 	node demos/app
 
-a11y: demo-build
-	@node .pa11yci.js
-	@PA11Y=true node demos/app
-	@$(DONE)
-
 check-secret:
 	secret-squirrel init
 

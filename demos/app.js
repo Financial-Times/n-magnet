@@ -5,10 +5,6 @@ const forumFixture = require('./fixtures/promos/forumpromo.json');
 const magnetTemplate = require('./templates/magnet.js');
 const homeTemplate = require('./templates/home');
 
-const chalk = require('chalk');
-const errorHighlight = chalk.bold.red;
-const highlight = chalk.bold.green;
-
 const demoPort = 5005;
 
 const app = module.exports = express({
@@ -102,23 +98,6 @@ app.post('/eventpromo/api/save-view', (req, res) => {
 	res.send({});
 });
 
-function runPa11yTests() {
-	const spawn = require('child_process').spawn;
-	const pa11y = spawn('pa11y-ci');
-
-	pa11y.stdout.on('data', (data) => {
-		console.log(highlight(`${data}`)); //eslint-disable-line
-	});
-
-	pa11y.stderr.on('data', (error) => {
-		console.log(errorHighlight(`${error}`)); //eslint-disable-line
-	});
-
-	pa11y.on('close', (code) => {
-		process.exit(code);
-	});
-}
-
 app.use(function (req, res, next) {
 	if (!req.route) {
 		/* eslint-disable-next-line no-console */
@@ -131,8 +110,4 @@ app.use(function (req, res, next) {
 	next();
 });
 
-const listen = app.listen(demoPort);
-
-if (process.env.PA11Y === 'true') {
-	listen.then(runPa11yTests);
-}
+app.listen(demoPort);
