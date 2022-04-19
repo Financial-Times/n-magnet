@@ -69,12 +69,11 @@
       "browser": "react"
     }
   },
-  "volta": {
-    "node": "12.22.10",
-    "npm": "7.20.2"
-  },
   "engines": {
-    "node": "12.x",
+    "node": "14.x || 16.x",
     "npm": "7.x || 8.x"
+  },
+  "volta": {
+    "node": "16.14.2"
   }
 }
