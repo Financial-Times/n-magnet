@@ -6,6 +6,7 @@ const magnetTemplate = require('./templates/magnet.js');
 const homeTemplate = require('./templates/home');
 
 process.on('unhandledRejection', (reason, promise) => {
+	// eslint-disable-next-line no-console
 	console.log('Unhandled Rejection at:', promise, 'reason:', reason);
 	// Application specific logging, throwing an error, or other logic here
   });
