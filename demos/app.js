@@ -5,6 +5,12 @@ const forumFixture = require('./fixtures/promos/forumpromo.json');
 const magnetTemplate = require('./templates/magnet.js');
 const homeTemplate = require('./templates/home');
 
+process.on('unhandledRejection', (reason, promise) => {
+	// eslint-disable-next-line no-console
+	console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+	// Application specific logging, throwing an error, or other logic here
+  });
+
 const demoPort = 5005;
 
 const app = module.exports = express({
@@ -19,7 +25,7 @@ const app = module.exports = express({
 	partialsDirectory: process.cwd(),
 	directory: process.cwd(),
 	demo: true,
-	s3o: false
+	s3o: false,
 });
 
 const eventPromoFixtures = {
