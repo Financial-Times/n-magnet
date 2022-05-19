@@ -3,12 +3,10 @@ module.exports = {
 		'/node_modules/'
 	],
 	testPathIgnorePatterns: [
-		'/node_modules/',
-		'/bower_components/'
+		'/node_modules/'
 	],
 	moduleDirectories: [
-		'node_modules',
-		'bower_components',
+		'node_modules'
 	],
 	testURL: 'http://localhost/'
 };

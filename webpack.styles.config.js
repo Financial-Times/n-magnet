@@ -8,11 +8,11 @@ const webpackConfigStyles = () => {
 		},
 		resolve: {
 			alias: {
-				'mathsass/dist/math': path.resolve(__dirname, 'bower_components/mathsass/dist/_math'),
-				'sass-mq/mq': path.resolve(__dirname, 'bower_components/sass-mq/_mq'),
+				'mathsass/dist/math': path.resolve(__dirname, 'node_modules/mathsass/dist/_math'),
+				'sass-mq/mq': path.resolve(__dirname, 'node_modules/sass-mq/_mq'),
 			},
 			modules: [
-				'bower_components',
+				'node_modules',
 			],
 			extensions: ['.jsx', '.css', '.scss']
 		},

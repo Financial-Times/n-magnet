@@ -51,18 +51,23 @@
     "pa11y-ci": "^2.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "sass-loader": "^7.1.0",
     "sass": "^1.50.1",
+    "sass-loader": "^7.1.0",
     "snyk": "^1.167.2",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "@financial-times/ft-date-format": "^1.0.0",
-    "@financial-times/n-eventpromo": "^8.0.0",
+    "@financial-times/n-eventpromo": "^9.0.0",
+    "@financial-times/n-newsletter-signup": "^9.0.0",
     "@financial-times/x-engine": "^1.0.2",
     "handlebars-loader": "^1.7.0",
-    "js-cookie": "^2.2.0"
+    "js-cookie": "^2.2.0",
+    "mathsass": "0.10.1"
+  },
+  "peerDependencies": {
+    "n-ui-foundations": "^9.0.0"
   },
   "x-dash": {
     "engine": {
