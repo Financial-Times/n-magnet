@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@financial-times/ft-date-format": "^1.0.0",
-    "@financial-times/n-eventpromo": "^9.0.0",
+    "@financial-times/n-eventpromo": "^10.0.0",
     "@financial-times/n-newsletter-signup": "^9.0.0",
     "@financial-times/x-engine": "^1.0.2",
     "handlebars-loader": "^1.7.0",
@@ -67,7 +67,8 @@
     "mathsass": "0.10.1"
   },
   "peerDependencies": {
-    "n-ui-foundations": "^9.0.0"
+    "n-ui-foundations": "^9.0.0",
+    "@financial-times/o-labels": "^6.2.2"
   },
   "x-dash": {
     "engine": {
