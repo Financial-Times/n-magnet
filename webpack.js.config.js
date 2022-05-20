@@ -28,7 +28,7 @@ const webpackConfigJs = () => {
 						query: {
 							'extensions': '.html',
 							'helperDirs': [
-								__dirname + '/node_modules/',
+								__dirname + '/node_modules/@financial-times',
 							],
 							'debug': true
 						}
