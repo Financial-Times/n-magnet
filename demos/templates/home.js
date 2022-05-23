@@ -1,4 +1,4 @@
-function main({demoUrls}) {
+function main ({demoUrls}) {
     return `
 		<!DOCTYPE html>
 		<html lang="en-GB">

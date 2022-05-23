@@ -11,7 +11,6 @@ const webpackConfigJs = () => {
 		},
 		resolve: {
 			modules: [
-				'bower_components',
 				'node_modules',
 			],
 			extensions: ['.js', '.jsx'],
@@ -29,7 +28,7 @@ const webpackConfigJs = () => {
 						query: {
 							'extensions': '.html',
 							'helperDirs': [
-								__dirname + '/bower_components/',
+								__dirname + '/node_modules/@financial-times',
 							],
 							'debug': true
 						}
