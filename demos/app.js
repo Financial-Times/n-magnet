@@ -1,4 +1,4 @@
-const express = require('@financial-times/n-internal-tool');
+const express = require('@financial-times/n-express');
 const conceptFixture = require('./fixtures/concept.json');
 const newsletterFixture = require('./fixtures/promos/newsletter.json');
 const forumFixture = require('./fixtures/promos/forumpromo.json');
