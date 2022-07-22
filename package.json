@@ -20,7 +20,8 @@
     "demo": "npm run demo-build && node demos/app",
     "demo-build": "rm -rf ./dist && npm run webpack-styles-dev && npm run webpack-js-dev",
     "webpack-styles-dev": "webpack --config webpack.styles.config.js --env development --mode development",
-    "webpack-js-dev": "webpack --config webpack.js.config.js --env development --mode development"
+    "webpack-js-dev": "webpack --config webpack.js.config.js --env development --mode development",
+    "check-secret": "secret-squirrel init"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "@dotcom-tool-kit/backend-app": "^2.0.5",
     "@dotcom-tool-kit/jest": "^2.0.3",
     "@financial-times/n-express": "^23.0.3",
+    "@financial-times/secret-squirrel": "^2.21.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.2.5",
@@ -56,6 +58,7 @@
     "eslint-plugin-react": "^7.12.4",
     "fetch-mock": "^6.4.3",
     "file-loader": "^2.0.0",
+    "husky": "^8.0.1",
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.4",
     "pa11y-ci": "^2.1.1",
