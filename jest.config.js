@@ -8,5 +8,6 @@ module.exports = {
 	moduleDirectories: [
 		'node_modules'
 	],
-	testURL: 'http://localhost/'
+	testURL: 'http://localhost/',
+	setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
 };

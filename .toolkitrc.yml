@@ -1,0 +1,8 @@
+plugins:
+  - '@dotcom-tool-kit/backend-app'
+  - '@dotcom-tool-kit/jest'
+hooks: {}
+options:
+  '@dotcom-tool-kit/jest':
+    configPath: './jest.config.js'
+  '@dotcom-tool-kit/vault': {}

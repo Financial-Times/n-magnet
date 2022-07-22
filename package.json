@@ -6,14 +6,17 @@
   "scripts": {
     "jest": "jest",
     "webpack": "webpack",
-    "test": "make test",
     "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "prepush": "make verify -j3",
     "build-dev": "webpack --config webpack.config.js --mode development --env development",
     "build-prod": "webpack --config webpack.config.js --mode production --env production",
     "prepare": "npx snyk protect || npx snyk protect -d || true",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine",
+    "build": "dotcom-tool-kit build:local",
+    "start": "dotcom-tool-kit run:local",
+    "test": "dotcom-tool-kit test:local",
+    "heroku-postbuild": "dotcom-tool-kit build:remote release:remote cleanup:remote"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,6 @@
   "devDependencies": {
     "@babel/runtime": "^7.17.9",
     "@financial-times/n-express": "^23.0.3",
-    "@financial-times/n-gage": "^3.6.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
@@ -55,7 +57,10 @@
     "sass-loader": "^7.1.0",
     "snyk": "^1.167.2",
     "webpack": "^4.23.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "dotcom-tool-kit": "^2.2.3",
+    "@dotcom-tool-kit/backend-app": "^2.0.5",
+    "@dotcom-tool-kit/jest": "^2.0.3"
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "^7.0.0",
