@@ -16,7 +16,10 @@
     "build": "dotcom-tool-kit build:local",
     "start": "dotcom-tool-kit run:local",
     "test": "dotcom-tool-kit test:local",
-    "heroku-postbuild": "dotcom-tool-kit build:remote release:remote cleanup:remote"
+    "heroku-postbuild": "dotcom-tool-kit build:remote release:remote cleanup:remote",
+    "demo-build": "rm -rf ./dist && npm run webpack-styles-dev && nopm run webpack-js-dev",
+    "webpack-styles-dev": "webpack --config webpack.styles.config.js --env development --mode development",
+    "webpack-js-dev": "webpack --config webpack.js.config.js --env development --mode development"
   },
   "repository": {
     "type": "git",
