@@ -21,7 +21,9 @@
     "demo-build": "rm -rf ./dist && npm run webpack-styles-dev && npm run webpack-js-dev",
     "webpack-styles-dev": "webpack --config webpack.styles.config.js --env development --mode development",
     "webpack-js-dev": "webpack --config webpack.js.config.js --env development --mode development",
-    "check-secret": "secret-squirrel init"
+    "check-secret": "secret-squirrel init",
+    "article-link": "mv ../next-article/node_modules/@financial-times/n-magnet ../next-article/node_modules/@financial-times/n-magnet-backup && ln -s pwd ../next-article/node_modules/@financial-times/n-magnet",
+    "article-unlink": "rm -rf ../next-article/node_modules/@financial-times/n-magnet && mv ../next-article/node_modules/@financial-times/n-magnet-backup ../next-article/node_modules/@financial-times/n-magnet"
   },
   "repository": {
     "type": "git",
