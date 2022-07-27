@@ -42,10 +42,10 @@ workflows:
           requires:
             - tool-kit/test
           filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /^v\d+\.\d+\.\d+(-.+)?/
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v\d+\.\d+\.\d+(-.+)?/
   nightly:
     when:
       and:
