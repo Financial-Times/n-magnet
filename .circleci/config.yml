@@ -37,36 +37,15 @@ workflows:
           node-version: 16.14-browsers
           requires:
             - tool-kit/build
-      - tool-kit/heroku-provision:
-          node-version: 16.14-browsers
+      - tool-kit/publish:
+          context: npm-publish-token
           requires:
-            - tool-kit/setup
-          filters:
-            branches:
-              ignore: /(^renovate-.*|^nori/.*|^main)/
-      - tool-kit/heroku-staging:
-          node-version: 16.14-browsers
-          requires:
-            - tool-kit/setup
-          filters:
-            branches:
-              only: main
-      - tool-kit/e2e-test-review:
-          node-version: 16.14-browsers
-          requires:
-            - tool-kit/heroku-provision
-      - tool-kit/e2e-test-staging:
-          node-version: 16.14-browsers
-          requires:
-            - tool-kit/heroku-staging
-      - tool-kit/heroku-promote:
-          node-version: 16.14-browsers
-          requires:
-            - tool-kit/e2e-test-staging
             - tool-kit/test
           filters:
-            branches:
-              only: main
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^v\d+\.\d+\.\d+(-.+)?/
   nightly:
     when:
       and:

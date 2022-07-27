@@ -44,6 +44,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.18.9",
     "@dotcom-tool-kit/backend-app": "^2.0.5",
+    "@dotcom-tool-kit/circleci-npm": "^2.0.5",
     "@dotcom-tool-kit/jest": "^2.0.3",
     "@financial-times/n-express": "^23.0.3",
     "@financial-times/secret-squirrel": "^2.21.0",

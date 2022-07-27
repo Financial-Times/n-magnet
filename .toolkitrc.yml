@@ -1,6 +1,7 @@
 plugins:
   - '@dotcom-tool-kit/backend-app'
   - '@dotcom-tool-kit/jest'
+  - '@dotcom-tool-kit/circleci-npm'
 hooks: {}
 options:
   '@dotcom-tool-kit/jest':
