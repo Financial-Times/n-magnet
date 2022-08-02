@@ -11,7 +11,7 @@
     "prepush": "make verify -j3",
     "build-dev": "webpack --config webpack.config.js --mode development --env development",
     "build-prod": "webpack --config webpack.config.js --mode production --env production",
-    "prepare": "npx snyk protect || npx snyk protect -d || true",
+    "prepare": "px snyk protect || npx snyk protect -d || true && husky install",
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine",
     "build": "dotcom-tool-kit build:local",
     "start": "dotcom-tool-kit run:local",
@@ -107,5 +107,13 @@
   },
   "volta": {
     "node": "16.14.2"
+  },
+  "lint-staged": {
+    "**/*.js": "npx dotcom-tool-kit format:staged test:staged --"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx dotcom-tool-kit git:precommit"
+    }
   }
 }
