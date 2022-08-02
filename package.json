@@ -24,7 +24,8 @@
     "webpack-js-dev": "webpack --config webpack.js.config.js --env development --mode development",
     "check-secret": "secret-squirrel init",
     "article-link": "mv ../next-article/node_modules/@financial-times/n-magnet ../next-article/node_modules/@financial-times/n-magnet-backup && ln -s pwd ../next-article/node_modules/@financial-times/n-magnet",
-    "article-unlink": "rm -rf ../next-article/node_modules/@financial-times/n-magnet && mv ../next-article/node_modules/@financial-times/n-magnet-backup ../next-article/node_modules/@financial-times/n-magnet"
+    "article-unlink": "rm -rf ../next-article/node_modules/@financial-times/n-magnet && mv ../next-article/node_modules/@financial-times/n-magnet-backup ../next-article/node_modules/@financial-times/n-magnet",
+    "format": "dotcom-tool-kit format:local"
   },
   "repository": {
     "type": "git",
@@ -47,7 +48,7 @@
     "@dotcom-tool-kit/circleci-npm": "^2.0.6",
     "@dotcom-tool-kit/error": "^2.0.0",
     "@dotcom-tool-kit/eslint": "^2.1.4",
-    "@dotcom-tool-kit/jest": "^2.0.3",
+    "@dotcom-tool-kit/jest": "^2.0.5",
     "@dotcom-tool-kit/lint-staged-npm": "^2.0.6",
     "@dotcom-tool-kit/npm": "^2.0.6",
     "@dotcom-tool-kit/prettier": "^2.0.6",
