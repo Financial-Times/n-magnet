@@ -115,7 +115,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "dotcom-tool-kit git:precommit",
+      "pre-commit": "dotcom-tool-kit git:precommit && npx secret-squirrel",
       "pre-push": "npm run prepush"
     }
   }
