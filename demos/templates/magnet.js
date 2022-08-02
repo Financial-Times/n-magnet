@@ -1,5 +1,5 @@
-function main ({title, conceptFixture}) {
-	return `
+function main ({ title, conceptFixture }) {
+  return `
 		<!DOCTYPE html>
 		<html lang="en-GB">
 		<head>

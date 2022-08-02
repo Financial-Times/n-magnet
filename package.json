@@ -6,7 +6,7 @@
   "scripts": {
     "jest": "jest",
     "webpack": "webpack",
-    "precommit": "npx dotcom-tool-kit git:precommit && npx secret-squirrel",
+    "precommit": "npx secret-squirrel && npm run format && npm run fix",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "prepush": "npm run test",
     "build-dev": "webpack --config webpack.config.js --mode development --env development",
@@ -25,6 +25,8 @@
     "check-secret": "secret-squirrel init",
     "article-link": "mv ../next-article/node_modules/@financial-times/n-magnet ../next-article/node_modules/@financial-times/n-magnet-backup && ln -s pwd ../next-article/node_modules/@financial-times/n-magnet",
     "article-unlink": "rm -rf ../next-article/node_modules/@financial-times/n-magnet && mv ../next-article/node_modules/@financial-times/n-magnet-backup ../next-article/node_modules/@financial-times/n-magnet",
+    "fix:js": "eslint --fix '**/*.{js,jsx,yml,yaml}' ",
+    "fix": "npm run fix:js",
     "format": "dotcom-tool-kit format:local"
   },
   "repository": {
@@ -110,12 +112,9 @@
   "volta": {
     "node": "16.14.2"
   },
-  "lint-staged": {
-    "**/*.js": "npx dotcom-tool-kit format:staged test:staged --"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "npx dotcom-tool-kit git:precommit && npx secret-squirrel",
+      "pre-commit": "npm run precommit",
       "pre-push": "npm run prepush"
     }
   }
