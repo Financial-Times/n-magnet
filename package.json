@@ -6,12 +6,12 @@
   "scripts": {
     "jest": "jest",
     "webpack": "webpack",
-    "precommit": "node_modules/.bin/secret-squirrel",
+    "precommit": "npx dotcom-tool-kit git:precommit && npx secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
-    "prepush": "make verify -j3",
+    "prepush": "npm run test",
     "build-dev": "webpack --config webpack.config.js --mode development --env development",
     "build-prod": "webpack --config webpack.config.js --mode production --env production",
-    "prepare": "px snyk protect || npx snyk protect -d || true && husky install",
+    "prepare": "npx snyk protect || npx snyk protect -d || true && husky install",
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine",
     "build": "dotcom-tool-kit build:local",
     "start": "dotcom-tool-kit run:local",
@@ -115,8 +115,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx dotcom-tool-kit git:precommit && npm run precommit",
-      "pre-push": "npm run test"
+      "pre-commit": "dotcom-tool-kit git:precommit",
+      "pre-push": "npm run prepush"
     }
   }
 }
