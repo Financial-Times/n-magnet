@@ -115,7 +115,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx dotcom-tool-kit git:precommit"
+      "pre-commit": "npx dotcom-tool-kit git:precommit && npm run precommit",
+      "pre-push": "npm run test"
     }
   }
 }
