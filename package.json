@@ -66,6 +66,7 @@
     "check-engine": "^1.10.1",
     "css-loader": "^1.0.0",
     "dotcom-tool-kit": "^2.2.3",
+    "eslint-plugin-no-only-tests": "^3.0.0",
     "eslint-plugin-react": "^7.12.4",
     "fetch-mock": "^6.4.3",
     "file-loader": "^2.0.0",
