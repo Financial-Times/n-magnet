@@ -6,7 +6,13 @@ plugins:
   - '@dotcom-tool-kit/lint-staged-npm'
   - '@dotcom-tool-kit/npm'
   - '@dotcom-tool-kit/circleci-npm'
-hooks: {}
+hooks:
+  test:local:
+    - Eslint
+    - JestLocal
+  test:ci:
+    - Eslint
+    - JestCI
 options:
   '@dotcom-tool-kit/jest':
     configPath: './jest.config.js'
