@@ -1,5 +1,5 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const webpackConfigStyles = () => {
   return {
@@ -41,7 +41,7 @@ const webpackConfigStyles = () => {
         chunkFilename: '[id].css'
       })
     ]
-  }
-}
+  };
+};
 
-module.exports = webpackConfigStyles
+module.exports = webpackConfigStyles;

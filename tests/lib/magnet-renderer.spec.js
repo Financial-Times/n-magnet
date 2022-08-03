@@ -1,4 +1,4 @@
-it.skip('importing n-newsletter-signup breaks tests', function () {})
+it.skip('importing n-newsletter-signup breaks tests', function () {});
 /*
 import {renderModule} from '../../src/lib/magnet-renderer';
 import {renderEventpromo} from '../../src/components/eventpromo/main';

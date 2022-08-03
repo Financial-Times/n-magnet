@@ -1,63 +1,63 @@
-import fetchMock from 'fetch-mock'
-import { geDataFromApi } from '../../src/lib/magnet-api-client'
-import conceptFixture from '../fixtures/conceptFixture'
-import * as config from '../../src/lib/config'
+import fetchMock from 'fetch-mock';
+import { geDataFromApi } from '../../src/lib/magnet-api-client';
+import conceptFixture from '../fixtures/conceptFixture';
+import * as config from '../../src/lib/config';
 
-const dataSourceUrl = config.get('magnetDataSourceUrl')
-jest.mock('../../src/components/eventpromo/main')
+const dataSourceUrl = config.get('magnetDataSourceUrl');
+jest.mock('../../src/components/eventpromo/main');
 
 afterEach(() => {
-  fetchMock.restore()
-})
+  fetchMock.restore();
+});
 
 describe('magnet-api-client', () => {
   describe('geDataFromApi', () => {
     test('should throw error when data source fails', async () => {
-      const fakeErrorMessage = 'Some error occurred'
-      const error = new Error(fakeErrorMessage)
-      fetchMock.post(dataSourceUrl, { throws: error })
+      const fakeErrorMessage = 'Some error occurred';
+      const error = new Error(fakeErrorMessage);
+      fetchMock.post(dataSourceUrl, { throws: error });
 
-      const conceptIds = {}
+      const conceptIds = {};
 
-      let hasError = false
+      let hasError = false;
       try {
-        await geDataFromApi(conceptIds)
+        await geDataFromApi(conceptIds);
       } catch (err) {
-        hasError = true
-        expect(err.message).toMatch(/failed to get magnet data/)
-        expect(err.message).toMatch(fakeErrorMessage)
+        hasError = true;
+        expect(err.message).toMatch(/failed to get magnet data/);
+        expect(err.message).toMatch(fakeErrorMessage);
       }
-      expect(hasError).toEqual(true)
-    })
+      expect(hasError).toEqual(true);
+    });
     test('should throw error when data source response invalid', async () => {
-      const fakeResponse = { status: 200, body: 'invalid json data' }
-      fetchMock.post(dataSourceUrl, fakeResponse)
+      const fakeResponse = { status: 200, body: 'invalid json data' };
+      fetchMock.post(dataSourceUrl, fakeResponse);
 
-      const conceptIds = {}
+      const conceptIds = {};
 
-      let hasError = false
+      let hasError = false;
       try {
-        await geDataFromApi(conceptIds)
+        await geDataFromApi(conceptIds);
       } catch (err) {
-        hasError = true
-        expect(err.message).toMatch(/failed to get magnet data/)
+        hasError = true;
+        expect(err.message).toMatch(/failed to get magnet data/);
       }
-      expect(hasError).toEqual(true)
-    })
+      expect(hasError).toEqual(true);
+    });
     test('should return data on success', async () => {
-      const fakeData = { type: 'someType', data: 'someData' }
-      fetchMock.post(dataSourceUrl, fakeData)
+      const fakeData = { type: 'someType', data: 'someData' };
+      fetchMock.post(dataSourceUrl, fakeData);
 
-      const conceptIds = conceptFixture
+      const conceptIds = conceptFixture;
 
-      let hasError = false
+      let hasError = false;
       try {
-        const response = await geDataFromApi(conceptIds)
-        expect(response).toEqual(fakeData)
+        const response = await geDataFromApi(conceptIds);
+        expect(response).toEqual(fakeData);
       } catch (err) {
-        hasError = true
+        hasError = true;
       }
-      expect(hasError).toEqual(false)
-    })
-  })
-})
+      expect(hasError).toEqual(false);
+    });
+  });
+});
