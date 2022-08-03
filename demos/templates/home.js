@@ -1,4 +1,4 @@
-function main ({ demoUrls }) {
+function main({ demoUrls }) {
   return `
 		<!DOCTYPE html>
 		<html lang="en-GB">
@@ -22,7 +22,7 @@ function main ({ demoUrls }) {
 			</div>
 		</body>
 	</html>
-	`;
+	`
 }
 
-module.exports = main;
+module.exports = main

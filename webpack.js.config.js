@@ -1,5 +1,5 @@
-const path = require('path');
-const xEngine = require('@financial-times/x-engine/src/webpack');
+const path = require('path')
+const xEngine = require('@financial-times/x-engine/src/webpack')
 
 const webpackConfigJs = () => {
   return {
@@ -36,7 +36,7 @@ const webpackConfigJs = () => {
       ]
     },
     plugins: [xEngine()]
-  };
-};
+  }
+}
 
-module.exports = webpackConfigJs;
+module.exports = webpackConfigJs

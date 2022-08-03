@@ -1,11 +1,11 @@
-import * as config from './config';
+import * as config from './config'
 
-const magnetDataSourceUrl = config.get('magnetDataSourceUrl');
+const magnetDataSourceUrl = config.get('magnetDataSourceUrl')
 
-export async function geDataFromApi (requestConceptIds = []) {
+export async function geDataFromApi(requestConceptIds = []) {
   const fetchBody = {
     conceptIds: requestConceptIds
-  };
+  }
 
   try {
     const fetchResponse = await fetch(magnetDataSourceUrl, {
@@ -15,14 +15,14 @@ export async function geDataFromApi (requestConceptIds = []) {
         'content-type': 'application/json'
       },
       method: 'POST'
-    });
+    })
     if (!fetchResponse.ok) {
-      const error = new Error(fetchResponse.status === 404 ? 'notFound' : 'failedToGetData');
-      throw error;
+      const error = new Error(fetchResponse.status === 404 ? 'notFound' : 'failedToGetData')
+      throw error
     }
-    return await fetchResponse.json();
+    return await fetchResponse.json()
   } catch (err) {
-    err.message = `failed to get magnet data from api, cause: ${err.message}`;
-    throw err;
+    err.message = `failed to get magnet data from api, cause: ${err.message}`
+    throw err
   }
 }
