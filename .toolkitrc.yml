@@ -15,5 +15,7 @@ hooks:
 options:
   '@dotcom-tool-kit/jest':
     configPath: './jest.config.js'
-  "@dotcom-tool-kit/prettier":
-    files: "**/*.{js,jsx,yaml,yml,json}"
+  '@dotcom-tool-kit/prettier':
+    files: '**/*.{js,yml,json}'
+  '@dotcom-tool-kit/eslint':
+    files: '**/*.{js,yml,json}'

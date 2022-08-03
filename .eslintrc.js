@@ -40,7 +40,12 @@ const config = {
 	'plugins': [
 		'no-only-tests'
 	],
-	'extends': [],
+	'extends': [
+		'@financial-times/eslint-config-next',
+		'plugin:json/recommended',
+		'plugin:yml/standard',
+		'prettier'
+	],
 	'overrides': [
 		{
 			'files': ['test/**/*.js', 'tests/**/*.js'],
