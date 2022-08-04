@@ -48,16 +48,16 @@ magnetInit().then(()=>{
 ### Running tests
 ```jshelllanguage
 # linting, unit-test
-make test
+npm test
 # unit test only
-make unit-test
+npm run unit-test
 # without coverage
 npm run jest 
 ```
 ### Running the demo
 ```
-make install
-make demo
+npm install
+npm run demo
 ```
 
 You can then visit local demonstration pages:

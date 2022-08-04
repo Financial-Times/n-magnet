@@ -21,11 +21,7 @@
     "scheduledEndTime": "2018-11-14T18:00:00.000Z",
     "scheduledStartTime": "2018-11-12T07:00:00.000Z",
     "score": 0,
-    "sectorTags": [
-      "Boris",
-      "May",
-      "Junker"
-    ],
+    "sectorTags": ["Boris", "May", "Junker"],
     "segmentId": "11259aab-28bd-cf0b-29c5-d6cde7eeac80",
     "strapline": "Planning for Post-Brexit Growth",
     "title": "FT Brexit and Beyond Summit",

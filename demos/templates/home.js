@@ -1,5 +1,5 @@
-function main ({demoUrls}) {
-    return `
+function main ({ demoUrls }) {
+  return `
 		<!DOCTYPE html>
 		<html lang="en-GB">
 		<head>
@@ -11,9 +11,13 @@ function main ({demoUrls}) {
 		<body>
 			<div class="o-grid-container o-grid-container--snappy">
 				<h1>n-magnet demo</h1>
-				<ul>${Object.entries(demoUrls).map(([name, url]) => `
+				<ul>${Object.entries(demoUrls)
+          .map(
+            ([name, url]) => `
 					<li><a href="${url}">${name}</a></li>
-				`).join('')}
+				`
+          )
+          .join('')}
 				</ul>
 			</div>
 		</body>

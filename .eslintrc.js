@@ -1,5 +1,5 @@
 const config = {
-	'parser': 'babel-eslint',
+	'parser': '@babel/eslint-parser',
 	'env': {
 		'browser': true,
 		'es6': true,
@@ -7,12 +7,8 @@ const config = {
 		'node': true
 	},
 	'parserOptions': {
-		'ecmaVersion': 2018,
-		'sourceType': 'module',
-		'ecmaFeatures': {
-			'jsx': true,
-			'modules': true
-		}
+		'ecmaVersion': 8,
+		'requireConfigFile': false
 	},
 	'rules': {
 		'eqeqeq': 2,
@@ -44,7 +40,12 @@ const config = {
 	'plugins': [
 		'no-only-tests'
 	],
-	'extends': [],
+	'extends': [
+		'@financial-times/eslint-config-next',
+		'plugin:json/recommended',
+		'plugin:yml/standard',
+		'prettier'
+	],
 	'overrides': [
 		{
 			'files': ['test/**/*.js', 'tests/**/*.js'],
