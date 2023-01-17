@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "^7.0.0",
-    "@financial-times/ft-date-format": "^1.0.0",
+    "@financial-times/ft-date-format": "^2.0.0",
     "@financial-times/n-eventpromo": "^10.0.1",
     "@financial-times/n-newsletter-signup": "^9.2.0",
     "@financial-times/x-engine": "^1.0.2",
