@@ -1,8 +1,9 @@
 import * as config from './config';
+import { parseFlags } from './parseFlags';
 
 const magnetDataSourceUrl = config.get('magnetDataSourceUrl');
 
-export async function geDataFromApi (requestConceptIds = []) {
+export async function getDataFromApi (requestConceptIds = [], flags = {}) {
   const fetchBody = {
     conceptIds: requestConceptIds
   };
@@ -12,7 +13,8 @@ export async function geDataFromApi (requestConceptIds = []) {
       body: JSON.stringify(fetchBody),
       headers: {
         accept: 'application/json',
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'ft-flags': parseFlags(flags)
       },
       method: 'POST'
     });

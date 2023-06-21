@@ -1,8 +1,8 @@
 import { hasValidConcepts } from './lib/hasValidConcepts';
-import { geDataFromApi } from './lib/magnet-api-client';
+import { getDataFromApi } from './lib/magnet-api-client';
 import { renderModule } from './lib/magnet-renderer';
 
-export async function magnetInit () {
+export async function magnetInit (flags = {}) {
   const magnetDataSelector = document.querySelector('.js-magnet-data');
   const magnetPlaceholderSelector = document.querySelector('.js-magnet-cta');
 
@@ -27,7 +27,7 @@ export async function magnetInit () {
 
   let magnetData;
   try {
-    magnetData = await geDataFromApi(validConcepts);
+    magnetData = await getDataFromApi(validConcepts, flags);
   } catch (err) {
     err.message = `error on geDataFromApi, caused by ${err.message}`;
     throw err;
