@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import { geDataFromApi } from '../../src/lib/magnet-api-client';
+import { getDataFromApi } from '../../src/lib/magnet-api-client';
 import conceptFixture from '../fixtures/conceptFixture';
 import * as config from '../../src/lib/config';
 
@@ -11,7 +11,7 @@ afterEach(() => {
 });
 
 describe('magnet-api-client', () => {
-  describe('geDataFromApi', () => {
+  describe('getDataFromApi', () => {
     test('should throw error when data source fails', async () => {
       const fakeErrorMessage = 'Some error occurred';
       const error = new Error(fakeErrorMessage);
@@ -21,7 +21,7 @@ describe('magnet-api-client', () => {
 
       let hasError = false;
       try {
-        await geDataFromApi(conceptIds);
+        await getDataFromApi(conceptIds, {});
       } catch (err) {
         hasError = true;
         expect(err.message).toMatch(/failed to get magnet data/);
@@ -37,7 +37,7 @@ describe('magnet-api-client', () => {
 
       let hasError = false;
       try {
-        await geDataFromApi(conceptIds);
+        await getDataFromApi(conceptIds);
       } catch (err) {
         hasError = true;
         expect(err.message).toMatch(/failed to get magnet data/);
@@ -52,7 +52,7 @@ describe('magnet-api-client', () => {
 
       let hasError = false;
       try {
-        const response = await geDataFromApi(conceptIds);
+        const response = await getDataFromApi(conceptIds, {});
         expect(response).toEqual(fakeData);
       } catch (err) {
         hasError = true;
