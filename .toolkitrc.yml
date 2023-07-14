@@ -19,3 +19,7 @@ options:
     files: '**/*.{js,yml,json}'
   '@dotcom-tool-kit/eslint':
     files: '**/*.{js,yml,json}'
+  '@dotcom-tool-kit/circleci':
+    nodeVersion:
+      - '18.16'
+      - '16.20'
