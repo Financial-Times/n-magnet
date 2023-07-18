@@ -28,11 +28,11 @@ describe('parseFlags()', () => {
     const onlyRelevantFlags = createStubbedFlags({ [relevantFlags[0]]: true });
     expect(parseFlags(onlyRelevantFlags)).toBe(`${relevantFlags[0]}:on`);
   });
-	test('given an object of flags that contains a relevant flag that is toggler and the value is false, it should return a key:off formatted string', () => {
+  test('given an object of flags that contains a relevant flag that is toggler and the value is false, it should return a key:off formatted string', () => {
     const onlyRelevantFlags = createStubbedFlags({ [relevantFlags[0]]: false });
     expect(parseFlags(onlyRelevantFlags)).toBe(`${relevantFlags[0]}:off`);
   });
-	test('given an object of flags that contains a relevant flag that is toggler and the value is control, it should return a key:off formatted string', () => {
+  test('given an object of flags that contains a relevant flag that is toggler and the value is control, it should return a key:off formatted string', () => {
     const onlyRelevantFlags = createStubbedFlags({ [relevantFlags[0]]: 'control' });
     expect(parseFlags(onlyRelevantFlags)).toBe(`${relevantFlags[0]}:off`);
   });

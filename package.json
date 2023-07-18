@@ -5,14 +5,13 @@
   "main": "main.js",
   "scripts": {
     "jest": "jest",
-    "webpack": "webpack",
+    "webpack": "NODE_OPTIONS='--openssl-legacy-provider' webpack",
     "precommit": "npx secret-squirrel && npm run format && npm run fix",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "prepush": "npm run test",
-    "build-dev": "webpack --config webpack.config.js --mode development --env development",
-    "build-prod": "webpack --config webpack.config.js --mode production --env production",
+    "build-dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js --mode development --env development",
+    "build-prod": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js --mode production --env production",
     "prepare": "npx snyk protect || npx snyk protect -d || true && husky install",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine",
     "build": "dotcom-tool-kit build:local",
     "start": "dotcom-tool-kit run:local",
     "test": "dotcom-tool-kit test:local",
@@ -21,8 +20,8 @@
     "heroku-postbuild": "dotcom-tool-kit build:remote release:remote cleanup:remote",
     "demo": "npm run demo-build && node demos/app",
     "demo-build": "rm -rf ./dist && npm run webpack-styles-dev && npm run webpack-js-dev",
-    "webpack-styles-dev": "webpack --config webpack.styles.config.js --env development --mode development",
-    "webpack-js-dev": "webpack --config webpack.js.config.js --env development --mode development",
+    "webpack-styles-dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.styles.config.js --env development --mode development",
+    "webpack-js-dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.js.config.js --env development --mode development",
     "check-secret": "secret-squirrel init",
     "article-link": "mv ../next-article/node_modules/@financial-times/n-magnet ../next-article/node_modules/@financial-times/n-magnet-backup && ln -s pwd ../next-article/node_modules/@financial-times/n-magnet",
     "article-unlink": "rm -rf ../next-article/node_modules/@financial-times/n-magnet && mv ../next-article/node_modules/@financial-times/n-magnet-backup ../next-article/node_modules/@financial-times/n-magnet",
@@ -48,16 +47,16 @@
     "@babel/preset-env": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.18.9",
-    "@dotcom-tool-kit/circleci": "^2.1.3",
-    "@dotcom-tool-kit/circleci-npm": "^2.0.6",
-    "@dotcom-tool-kit/error": "^2.0.0",
-    "@dotcom-tool-kit/eslint": "^2.1.4",
-    "@dotcom-tool-kit/jest": "^2.0.5",
-    "@dotcom-tool-kit/lint-staged-npm": "^2.0.6",
-    "@dotcom-tool-kit/npm": "^2.0.6",
-    "@dotcom-tool-kit/prettier": "^2.0.6",
-    "@dotcom-tool-kit/state": "^2.0.0",
-    "@dotcom-tool-kit/types": "^2.5.0",
+    "@dotcom-tool-kit/circleci": "^5.3.5",
+    "@dotcom-tool-kit/circleci-npm": "^5.2.5",
+    "@dotcom-tool-kit/error": "^3.1.0",
+    "@dotcom-tool-kit/eslint": "^3.1.3",
+    "@dotcom-tool-kit/jest": "^3.1.3",
+    "@dotcom-tool-kit/lint-staged-npm": "^3.1.3",
+    "@dotcom-tool-kit/npm": "^3.1.3",
+    "@dotcom-tool-kit/prettier": "^3.1.3",
+    "@dotcom-tool-kit/state": "^3.1.0",
+    "@dotcom-tool-kit/types": "^3.3.1",
     "@financial-times/eslint-config-next": "^4.0.0",
     "@financial-times/n-express": "^23.0.3",
     "@financial-times/secret-squirrel": "^2.21.0",
@@ -70,7 +69,7 @@
     "bower": "^1.8.8",
     "check-engine": "^1.10.1",
     "css-loader": "^1.0.0",
-    "dotcom-tool-kit": "^2.2.3",
+    "dotcom-tool-kit": "^3.2.1",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-json": "^3.1.0",
@@ -87,8 +86,9 @@
     "react-dom": "^16.12.0",
     "sass": "^1.50.1",
     "sass-loader": "^7.1.0",
+    "loader-runner": "^4.3.0",
     "snyk": "^1.167.2",
-    "webpack": "^4.23.1",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
@@ -112,11 +112,11 @@
     }
   },
   "engines": {
-    "node": "14.x || 16.x",
-    "npm": "7.x || 8.x"
+    "node": "16.x || 18.x",
+    "npm": "7.x || 8.x || 9.x"
   },
   "volta": {
-    "node": "16.14.2"
+    "node": "18.16.1"
   },
   "husky": {
     "hooks": {
