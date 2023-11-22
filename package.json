@@ -103,7 +103,7 @@
   },
   "peerDependencies": {
     "@financial-times/o-labels": "^6.2.2",
-    "n-ui-foundations": "^9.0.0"
+    "n-ui-foundations": "^9.0.0 || ^10.0.0"
   },
   "x-dash": {
     "engine": {
