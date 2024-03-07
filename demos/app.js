@@ -102,7 +102,10 @@ app.post('/magnet/api/', (req, res) => {
     const brand = referer.split('/').reverse()[0];
     fixture = eventPromoFixtures[brand];
   } else {
-    fixture = newsletterFixture;
+    fixture = {
+      type: 'newsletter',
+      data: newsletterFixture[0]
+    };
   }
 
   res.send(fixture);
