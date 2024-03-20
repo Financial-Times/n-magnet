@@ -3,9 +3,10 @@ plugins:
   - '@dotcom-tool-kit/circleci'
   - '@dotcom-tool-kit/eslint'
   - '@dotcom-tool-kit/prettier'
-  - '@dotcom-tool-kit/npm'
-  - '@dotcom-tool-kit/circleci-npm'
+  - '@dotcom-tool-kit/nodemon'
 hooks:
+  run:local:
+    - Nodemon
   test:local:
     - Eslint
     - JestLocal
@@ -22,3 +23,7 @@ options:
   '@dotcom-tool-kit/circleci':
     nodeVersion:
       - '18.16'
+  '@dotcom-tool-kit/nodemon':
+    entry: './demos/app.js'
+    useVault: false
+    ports: [5005]
