@@ -1,20 +1,20 @@
 {
-  "type": "eventpromo",
-  "data": {
-    "brand": "ft-bdp:workshop",
-    "concepts": [],
-    "description": "A practical and interactive half-day virtual workshop looking at the realities of building your personal brand, developing a plan of action and getting that all-important first non-executive director role.",
-    "displayStartTime": "2020-05-01T00:00:00.000Z",
-    "eventUrl": "https://bdp.ft.com/Workshops/How-to-Get-Your-First-Non-Executive-Director-Role-Thursday-01-July-2021-12-30-00-pm",
-    "id": "bdp-workshop-how-to-get-your-first-non-executive-director-role",
-    "imageUrl": "https://bdp.ft.com/var/ezdemo_site/storage/images/media/media/ned-images/homepage-thumbnails/htgyfr/13467-1-eng-GB/HTGYFR_event_large.jpg",
-    "scheduledEndTime": "2021-07-01T18:00:00.000Z",
-    "scheduledStartTime": "2021-07-01T13:00:00.000Z",
-    "score": 0,
-    "sectorTags": [],
-    "segmentId": "example-segment-id",
-    "strapline": "A half-day virtual workshop on the realities of getting that all-important first non-executive director role.",
-    "title": "How to Get Your First Non-Executive Director Role",
-    "location": "United Kingdom"
-  }
+	"type": "eventpromo",
+	"data": {
+		"brand": "ft-bdp:workshop",
+		"concepts": [],
+		"description": "A practical and interactive half-day virtual workshop looking at the realities of building your personal brand, developing a plan of action and getting that all-important first non-executive director role.",
+		"displayStartTime": "2020-05-01T00:00:00.000Z",
+		"eventUrl": "https://bdp.ft.com/Workshops/How-to-Get-Your-First-Non-Executive-Director-Role-Thursday-01-July-2021-12-30-00-pm",
+		"id": "bdp-workshop-how-to-get-your-first-non-executive-director-role",
+		"imageUrl": "https://bdp.ft.com/var/ezdemo_site/storage/images/media/media/ned-images/homepage-thumbnails/htgyfr/13467-1-eng-GB/HTGYFR_event_large.jpg",
+		"scheduledEndTime": "2021-07-01T18:00:00.000Z",
+		"scheduledStartTime": "2021-07-01T13:00:00.000Z",
+		"score": 0,
+		"sectorTags": [],
+		"segmentId": "example-segment-id",
+		"strapline": "A half-day virtual workshop on the realities of getting that all-important first non-executive director role.",
+		"title": "How to Get Your First Non-Executive Director Role",
+		"location": "United Kingdom"
+	}
 }

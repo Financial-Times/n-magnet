@@ -1,10 +1,10 @@
 {
-  "type": "forumpromo",
-  "data": {
-    "id": "future-forum",
-    "title": "Future Forum",
-    "strapline": "An authoritative space for business leaders to share ideas, build relationships and develop solutions to future challenges.",
-    "link": "https://forums.ft.com/future-forum",
-    "ctaText": "Become a member"
-  }
+	"type": "forumpromo",
+	"data": {
+		"id": "future-forum",
+		"title": "Future Forum",
+		"strapline": "An authoritative space for business leaders to share ideas, build relationships and develop solutions to future challenges.",
+		"link": "https://forums.ft.com/future-forum",
+		"ctaText": "Become a member"
+	}
 }
