@@ -1,6 +1,4 @@
-function main ({ demoUrls }) {
-	return (
-	`<!DOCTYPE html>
+	return `<!DOCTYPE html>
 	<html lang="en-GB">
 		<head>
 			<meta charset="utf-8"/>
@@ -18,7 +16,6 @@ function main ({ demoUrls }) {
 			</div>
 		</body>
 	</html>`
-	);
 }
 
-module.exports = main;
+module.exports = main

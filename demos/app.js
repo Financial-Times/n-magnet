@@ -1,51 +1,52 @@
 require('@dotcom-reliability-kit/crash-handler')()
 
 const nExpress = require('@financial-times/n-express')
+	name: 'public',
+	systemCode: 'n-magnet',
+	withFlags: false,
+	withHandlebars: false,
+	withNavigation: false,
+	withAnonMiddleware: false,
+	withConsent: false,
+	viewsDirectory: '/demos/templates',
+	partialsDirectory: process.cwd(),
+	directory: process.cwd(),
+	healthChecks: [],
+	demo: true,
+}))
 
-const app = (module.exports = express({
-  name: 'public',
-  systemCode: 'n-magnet',
-  withFlags: false,
-  withHandlebars: true,
-  withNavigation: false,
-  withAnonMiddleware: false,
-  hasHeadCss: false,
-  viewsDirectory: '/demos/templates',
-  partialsDirectory: process.cwd(),
-  directory: process.cwd(),
-  demo: true,
-  s3o: false
-}));
+app.use(
 
 const eventPromoFixtures = {
-  'ft-live': require('./fixtures/promos/eventpromo/ft-live.json'),
-  'ft-forums': require('./fixtures/promos/eventpromo/ft-forums.json'),
-  'ft-bdp:workshop': require('./fixtures/promos/eventpromo/bpd-workshop.json'),
-  'ft-bdp:diploma': require('./fixtures/promos/eventpromo/bpd-diploma.json'),
-  'ft-bdp:masterclass': require('./fixtures/promos/eventpromo/bpd-masterclass.json'),
-  'ft-bdp:online-course': require('./fixtures/promos/eventpromo/bpd-online-course.json')
-};
+	'ft-live': require('./fixtures/promos/eventpromo/ft-live.json'),
+	'ft-forums': require('./fixtures/promos/eventpromo/ft-forums.json'),
+	'ft-bdp:workshop': require('./fixtures/promos/eventpromo/bpd-workshop.json'),
+	'ft-bdp:diploma': require('./fixtures/promos/eventpromo/bpd-diploma.json'),
+	'ft-bdp:masterclass': require('./fixtures/promos/eventpromo/bpd-masterclass.json'),
+	'ft-bdp:online-course': require('./fixtures/promos/eventpromo/bpd-online-course.json'),
+}
 
 //ignore favicon request for demo
 app.use((req, res, next) => {
-  if (req.originalUrl === '/favicon.ico') {
-    res.status(204).json({ nope: true });
-  } else {
-    next();
-  }
-});
+	if (req.originalUrl === '/favicon.ico') {
+		res.status(204).json({ nope: true })
+	} else {
+		next()
+	}
+})
 
 const demoUrls = {
-  ...Object.keys(eventPromoFixtures).reduce(
-    (acc, brand) => ({
-      ...acc,
-      [`${brand} eventpromo`]: `/eventpromo-demo/${brand}`
-    }),
-    {}
-  ),
-  forumpromo: '/forumpromo-demo',
-  newsletterpromo: '/newsletter-demo'
-};
+	...Object.keys(eventPromoFixtures).reduce(
+		(acc, brand) => ({
+			...acc,
+			[`${brand} eventpromo`]: `/eventpromo-demo/${brand}`,
+		}),
+		{},
+	),
+	forumpromo: '/forumpromo-demo',
+	newsletterpromo: '/newsletter-demo',
+	newslettersList: '/newsletters-list-demo',
+}
 
 app.get('/', (req, res) => {
   res.send(homeTemplate({ demoUrls }));
@@ -84,36 +85,21 @@ app.use('/magnet-demo/static', express.static('dist/demo'));
 app.post('/magnet/api/', (req, res) => {
   const referer = req.header('Referer');
 
-  let fixture;
-  if (referer.includes('forumpromo-demo')) {
-    fixture = forumFixture;
-  } else if (referer.includes('eventpromo-demo')) {
-    const brand = referer.split('/').reverse()[0];
-    fixture = eventPromoFixtures[brand];
-  } else {
-    fixture = {
-      type: 'newsletter',
-      data: newsletterFixture[0]
-    };
-  }
+	response.send({})
+})
 
-  res.send(fixture);
-});
-
-app.post('/eventpromo/api/save-view', (req, res) => {
-  res.send({});
-});
+app.post('/__myft/api/alerts/:user/newsletters/:newsletter/subscribe', (request, response) => {
 
 app.use(function (req, res, next) {
-  if (!req.route) {
-    /* eslint-disable-next-line no-console */
-    console.log('404 error', {
-      method: req.method,
-      url: req.protocol + '://' + req.get('host') + req.originalUrl
-    });
-    return next(new Error('404: ' + req.route));
-  }
-  next();
-});
+	if (!req.route) {
+		/* eslint-disable-next-line no-console */
+		console.log('404 error', {
+			method: req.method,
+			url: req.protocol + '://' + req.get('host') + req.originalUrl,
+		})
+		return next(new Error('404: ' + req.route))
+	}
+	next()
+})
 
 app.listen(demoPort);
