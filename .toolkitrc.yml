@@ -39,3 +39,5 @@ options:
     entry: './demos/app.js'
     useVault: false
     ports: [5005]
+  '@dotcom-tool-kit/doppler':
+    project: 'repo_n-magnet'
