@@ -4,6 +4,7 @@ plugins:
   - '@dotcom-tool-kit/eslint'
   - '@dotcom-tool-kit/prettier'
   - '@dotcom-tool-kit/nodemon'
+  - '@dotcom-tool-kit/lint-staged'
 hooks:
   run:local:
     - Nodemon
