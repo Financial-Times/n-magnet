@@ -31,18 +31,18 @@ The component expects some elements to be present in the DOM
 <div class="magnet-cta js-magnet-cta" data-trackable="magnet-cta"></div>
 ```
 ### Initialise the component
-- call magnetInit() from n-magnet
+- call init() from n-magnet
 ```javascript
-import { magnetInit } from '@financial-times/n-magnet';
+import * as magnet from '@financial-times/n-magnet';
 
-magnetInit().then(()=>{
+magnet.init().then(()=>{
     const replacedItem = document.querySelector('.js-instant-alert-cta');
     replacedItem.style.display = 'none';
 })
-.catch((err) => {
+.catch((error) => {
     // fail silently
     // eslint-disable-next-line no-console
-    console.debug('failed to init magnet', err);
+    console.debug('failed to init magnet', error);
 });
 ```
 ### Running tests
@@ -66,12 +66,6 @@ You can then visit local demonstration pages:
 - [newsletter-demo](http://localhost:5005/newsletter-demo)
 
 ## Known issues / to do
-### oGrid issue
-Demo is broken by `src/components/newsletter-signup/main.js`
-
-Error: ```main.js:14 Uncaught TypeError: oGrid.setMinSupportedIeVersion is not a function```
-
-Meaning the demo only works with eventpromo and newsletter-signup/main.js needs to be commented out...
 
 ### Build process
 After some struggle with the build process, styles and js are built separately.
