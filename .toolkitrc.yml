@@ -1,10 +1,13 @@
 plugins:
+  - '@dotcom-tool-kit/frontend-app'
   - '@dotcom-tool-kit/jest'
   - '@dotcom-tool-kit/circleci'
   - '@dotcom-tool-kit/eslint'
   - '@dotcom-tool-kit/prettier'
   - '@dotcom-tool-kit/nodemon'
   - '@dotcom-tool-kit/lint-staged'
+  - '@dotcom-tool-kit/husky-npm'
+  - '@dotcom-tool-kit/circleci-npm'
 hooks:
   run:local:
     - Nodemon

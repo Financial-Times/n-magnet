@@ -1,0 +1,161 @@
+@import '@financial-times/ft-concept-button/main';
+@import '@financial-times/o-labels/main';
+@import '@financial-times/o-buttons/main';
+@import 'n-ui-foundations/main';
+
+@include oLabels($opts: ('sizes': ('small'),
+	'states': ('content-premium'
+)));
+
+.n-newsletter-signup {
+	background-color: oColorsByName('white-80');
+	position: relative;
+	display: grid;
+	align-items: start;
+	justify-content: stretch;
+	align-content: start;
+	grid-template-columns: 105px auto;
+	grid-template-rows: auto auto;
+	gap: 10px;
+	padding: 15px 10px 20px 10px;
+
+	@include oGridRespondTo($from: S, $until: M) {
+		grid-template-columns: 33% auto;
+	}
+
+
+	@include oGridRespondTo($from: M) {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		flex-direction: row;
+		align-items: stretch;
+		align-content: flex-start;
+		justify-content: center;
+		gap: 24px;
+		padding: 20px;
+	}
+
+	.ft-concept-button__button {
+		padding: 6px 10px;
+		text-align: center;
+		min-width: 105px;
+	}
+}
+
+.n-newsletter-signup--premium {
+	padding-top: 26px;
+}
+
+.n-newsletter-signup__image {
+	position: relative;
+	text-align: center;
+	flex: 0 0 100%;
+
+	@include oGridRespondTo($from: M) {
+		max-width: 158px;
+		max-height: 89px;
+	}
+
+	img {
+		max-width: 100%;
+	}
+}
+
+.n-newsletter-signup__content {
+
+	flex-grow: 0.75;
+	grid-column: 1 / span 2;
+
+	h2 {
+		@include oTypographyDisplay($scale: 2, $weight: 'bold');
+		display: inline-block;
+		align-self: flex-end;
+		margin: 0 0 0.5em 0;
+		flex-shrink: 1;
+		padding-top: 0;
+		@include oGridRespondTo($from: S) {
+			@include oTypographyDisplay($scale: 3, $weight: 'bold');
+		}
+	}
+
+	p {
+		@include oTypographySans($scale: 1);
+		color: oColorsByName('black-80');
+		margin: 0 0 0.5em 0;
+		max-width: 30em;
+	
+		@include oGridRespondTo($from: M) {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.n-newsletter-signup__image + .n-newsletter-signup__content {
+
+	max-width: 600px;
+	grid-column: 2 / span 1;
+
+	h2 {
+		@include oTypographyDisplay($scale: 2, $weight: 'bold');
+		margin-bottom: 0.3em;
+	}
+
+	p {
+		@include oTypographySans($scale: -1);
+		color: oColorsByName('black-60');
+		@include oGridRespondTo($from: M) {
+			max-width: 20em;
+		}
+	}
+}
+
+.n-newsletter-signup__form {
+	align-self: center;
+	grid-column: 1 / span 2;
+}
+
+.n-newsletter-signup__image ~ .n-newsletter-signup__form {
+	grid-column: 2;
+}
+
+.n-newsletter-signup__top-meta {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.n-newsletter-signup__meta__frequency {
+	@include oTypographySans($scale: -2);
+	text-transform: uppercase;
+	color: oColorsByName('black-60');
+}
+
+.n-newsletter-signup__upgrade {
+	@include oButtonsContent($opts: ('type': 'secondary',
+		));
+	margin: 16px 16px 16px 0;
+	min-height: 16px;
+	min-width: fit-content;
+}
+
+.n-newsletter-signup__feedback {
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 10px 0;
+	padding: 10px 16px 14px;
+	font-size: 18px;
+}
+
+.n-newsletter-signup__feedback--error {
+	background: oColorsByName('wheat');
+	color: oColorsByName('crimson');
+}
+
+.n-newsletter-signup__feedback--hidden {
+	@include oNormaliseVisuallyHidden();
+}
+
+@include ftConceptButton();

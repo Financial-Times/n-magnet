@@ -1,7 +1,5 @@
-$system-code: n-magnet-demo;
-
-@import '../node_modules/@financial-times/n-eventpromo/dist/Eventpromo';
-@import '@financial-times/n-newsletter-signup/main';
+$system-code: 'n-magnet-demo';
+@import '../main';
 
 html {
 	background-color: #fff1e5;
