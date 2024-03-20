@@ -32,6 +32,8 @@ app.use(
 	})
 );
 
+app.get('/__gtg', (_req, res) => res.sendStatus(200));
+
 const eventPromoFixtures = {
 	'ft-live': require('./fixtures/promos/eventpromo/ft-live.json'),
 	'ft-forums': require('./fixtures/promos/eventpromo/ft-forums.json'),
