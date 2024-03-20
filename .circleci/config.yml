@@ -113,6 +113,17 @@ workflows:
               only: /^v\d+\.\d+\.\d+(-.+)?/
             branches:
               only: main
+      - tool-kit/publish-tag:
+          requires:
+            - tool-kit/test-node
+          name: tool-kit/publish-tag-node
+          executor: node
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+(-.+)?/
+            branches:
+              ignore: /.*/
+          context: npm-publish-token
   nightly:
     when:
       and:
