@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/Financial-Times/n-magnet#readme",
   "devDependencies": {
+    "@dotcom-reliability-kit/crash-handler": "^4.0.3",
     "@dotcom-reliability-kit/eslint-config": "^3.0.1",
     "@dotcom-tool-kit/circleci": "^5.3.8",
     "@dotcom-tool-kit/circleci-npm": "^5.2.8",
