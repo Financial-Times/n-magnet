@@ -20,7 +20,7 @@ options:
     files: '**/*.{js,jsx,yml,json}'
     configFile: './prettier.config.js'
   '@dotcom-tool-kit/eslint':
-    files: '**/*.{js,yml,json}'
+    files: '**/*.{js,jsx,yml,json}'
   '@dotcom-tool-kit/circleci':
     nodeVersion:
       - '18.16'
