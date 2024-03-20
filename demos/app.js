@@ -1,17 +1,6 @@
-const express = require('@financial-times/n-express');
-const conceptFixture = require('./fixtures/concept.json');
-const newsletterFixture = require('./fixtures/promos/newsletter.json');
-const forumFixture = require('./fixtures/promos/forumpromo.json');
-const magnetTemplate = require('./templates/magnet.js');
-const homeTemplate = require('./templates/home');
+require('@dotcom-reliability-kit/crash-handler')()
 
-process.on('unhandledRejection', (reason, promise) => {
-  // eslint-disable-next-line no-console
-  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
-  // Application specific logging, throwing an error, or other logic here
-});
-
-const demoPort = 5005;
+const nExpress = require('@financial-times/n-express')
 
 const app = (module.exports = express({
   name: 'public',
