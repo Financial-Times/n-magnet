@@ -1,5 +1,5 @@
 function main ({ title, conceptFixture }) {
-  return `
+	return `
 		<!DOCTYPE html>
 		<html lang="en-GB">
 		<head>
@@ -40,7 +40,7 @@ function main ({ title, conceptFixture }) {
 			</div>
 		</body>
 	</html>
-	`;
+	`
 }
 
-module.exports = main;
+module.exports = main
