@@ -1,0 +1,5 @@
+{
+	"ignoreRoot": [],
+	"watch": ["node_modules", "demos"],
+	"ext": "js,json,jsx"
+}
