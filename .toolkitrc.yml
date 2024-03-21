@@ -26,7 +26,7 @@ options:
     files: '**/*.{js,jsx,yml,json}'
   '@dotcom-tool-kit/circleci':
     nodeVersion:
-      - '18.16'
+      - '18.16-browsers'
   '@dotcom-tool-kit/heroku':
     pipeline: 'n-magnet-demo'
     systemCode: 'npm:@financial-times/n-magnet'
