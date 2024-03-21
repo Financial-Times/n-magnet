@@ -79,7 +79,7 @@
     "@financial-times/n-eventpromo": "^10.0.7",
     "classnames": "^2.5.1",
     "js-cookie": "^2.2.1",
-    "mathsass": "0.10.1",
+    "mathsass": "0.11.0",
     "superstore-sync": "^2.1.1"
   },
   "peerDependencies": {
