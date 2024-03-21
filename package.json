@@ -2,6 +2,7 @@
   "name": "@financial-times/n-magnet",
   "version": "0.0.0",
   "description": "newsletter signup and event promos for article pages",
+  "main": "main.js",
   "scripts": {
     "prepare": "npx snyk protect || npx snyk protect -d || true",
     "build": "dotcom-tool-kit build:local",
