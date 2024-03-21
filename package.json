@@ -1,30 +1,14 @@
 {
   "name": "@financial-times/n-magnet",
   "version": "0.0.0",
-  "description": "orchestrates onward journey components (better promo, newsletters, etc)",
+  "description": "newsletter signup and event promos for article pages",
   "main": "main.js",
   "scripts": {
-    "jest": "jest",
-    "webpack": "NODE_OPTIONS='--openssl-legacy-provider' webpack",
-    "precommit": "npm run format && npm run fix",
-    "prepush": "npm run test",
-    "build-dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js --mode development --env development",
-    "build-prod": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js --mode production --env production",
-    "prepare": "npx snyk protect || npx snyk protect -d || true && husky install",
+    "prepare": "npx snyk protect || npx snyk protect -d || true",
     "build": "dotcom-tool-kit build:local",
     "start": "dotcom-tool-kit run:local",
     "test": "dotcom-tool-kit test:local",
-    "unit-test": "export NODE_ENV=test && jest tests",
-    "test-debug": "export NODE_ENV=test && jest tests --coverage --debug",
     "heroku-postbuild": "dotcom-tool-kit build:remote release:remote cleanup:remote",
-    "demo": "npm run demo-build && node demos/app",
-    "demo-build": "rm -rf ./dist && npm run webpack-styles-dev && npm run webpack-js-dev",
-    "webpack-styles-dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.styles.config.js --env development --mode development",
-    "webpack-js-dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.js.config.js --env development --mode development",
-    "article-link": "mv ../next-article/node_modules/@financial-times/n-magnet ../next-article/node_modules/@financial-times/n-magnet-backup && ln -s pwd ../next-article/node_modules/@financial-times/n-magnet",
-    "article-unlink": "rm -rf ../next-article/node_modules/@financial-times/n-magnet && mv ../next-article/node_modules/@financial-times/n-magnet-backup ../next-article/node_modules/@financial-times/n-magnet",
-    "fix:js": "eslint --fix '**/*.{js,jsx,yml,yaml}' ",
-    "fix": "npm run fix:js",
     "format": "dotcom-tool-kit format:local"
   },
   "repository": {
@@ -39,31 +23,29 @@
   },
   "homepage": "https://github.com/Financial-Times/n-magnet#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/eslint-parser": "^7.18.9",
-    "@babel/plugin-transform-runtime": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/runtime": "^7.18.9",
+    "@dotcom-reliability-kit/crash-handler": "^4.0.3",
+    "@dotcom-reliability-kit/eslint-config": "^3.0.1",
     "@dotcom-tool-kit/circleci": "^5.3.8",
     "@dotcom-tool-kit/circleci-npm": "^5.2.8",
     "@dotcom-tool-kit/error": "^3.1.0",
     "@dotcom-tool-kit/eslint": "^3.1.3",
+    "@dotcom-tool-kit/frontend-app": "^3.2.4",
+    "@dotcom-tool-kit/husky-npm": "^4.2.0",
     "@dotcom-tool-kit/jest": "^3.1.3",
-    "@dotcom-tool-kit/lint-staged-npm": "^3.1.3",
+    "@dotcom-tool-kit/lint-staged": "^4.2.0",
+    "@dotcom-tool-kit/nodemon": "^3.4.1",
     "@dotcom-tool-kit/npm": "^3.2.2",
     "@dotcom-tool-kit/prettier": "^3.1.3",
     "@dotcom-tool-kit/state": "^3.1.0",
     "@dotcom-tool-kit/types": "^3.3.1",
+    "@dotcom-tool-kit/webpack": "^3.2.0",
+    "@financial-times/dotcom-build-base": "^9.3.4",
+    "@financial-times/dotcom-build-js": "^9.3.4",
+    "@financial-times/dotcom-build-sass": "^9.3.4",
+    "@financial-times/dotcom-middleware-asset-loader": "^9.3.4",
     "@financial-times/eslint-config-next": "^4.0.0",
     "@financial-times/n-express": "^23.0.3",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.2.5",
-    "babel-plugin-dynamic-import-node": "^2.2.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "bower": "^1.8.8",
+    "@financial-times/x-engine": "^14.5.2",
     "check-engine": "^1.10.1",
     "css-loader": "^1.0.0",
     "dotcom-tool-kit": "^3.3.6",
@@ -75,37 +57,43 @@
     "eslint-plugin-yml": "^1.1.0",
     "fetch-mock": "^6.4.3",
     "file-loader": "^2.0.0",
-    "husky": "^8.0.1",
-    "jest": "^23.6.0",
+    "husky": "^4.3.8",
+    "jest": "^29.7.0",
     "loader-runner": "^4.3.0",
     "mini-css-extract-plugin": "^0.4.4",
+    "nodemon": "^2.0.22",
     "pa11y-ci": "^2.1.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ready-state": "^2.0.5",
     "sass": "^1.50.1",
     "sass-loader": "^7.1.0",
     "snyk": "^1.167.2",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "@financial-times/dotcom-server-handlebars": "^7.0.0",
+    "@dotcom-tool-kit/lint-staged-npm": "^3.2.0",
+    "@financial-times/ft-concept-button": "^1.2.3",
     "@financial-times/ft-date-format": "^1.0.0",
     "@financial-times/n-eventpromo": "^10.0.7",
-    "@financial-times/n-newsletter-signup": "^11.0.0",
-    "@financial-times/x-engine": "^1.0.2",
-    "handlebars-loader": "^1.7.0",
-    "js-cookie": "^2.2.0",
-    "mathsass": "0.10.1"
+    "classnames": "^2.5.1",
+    "js-cookie": "^2.2.1",
+    "mathsass": "0.10.1",
+    "superstore-sync": "^2.1.1"
   },
   "peerDependencies": {
+    "@financial-times/n-tracking": "^7.4.0",
+    "@financial-times/o-buttons": "^7.9.2",
     "@financial-times/o-labels": "^6.2.2",
-    "n-ui-foundations": "^9.0.0 || ^10.0.0"
+    "@financial-times/o-tracking": "^4.5.2",
+    "n-ui-foundations": ">=9.0.0",
+    "preact": "^10.19.6"
   },
   "x-dash": {
     "engine": {
       "server": "react",
-      "browser": "react"
+      "browser": "preact"
     }
   },
   "engines": {
@@ -116,8 +104,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit",
-      "pre-push": "npm run prepush"
+      "pre-commit": "dotcom-tool-kit git:precommit",
+      "pre-push": "dotcom-tool-kit test:local",
+      "commit-msg": "dotcom-tool-kit git:commitmsg"
     }
   }
 }

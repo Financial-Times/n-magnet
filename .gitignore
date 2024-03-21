@@ -6,3 +6,5 @@ node_modules/
 *.env*
 /.vscode
 /coverage
+.toolkitstate/
+.eslintcache

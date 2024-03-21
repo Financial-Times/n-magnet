@@ -1,18 +1,20 @@
-function main ({ title, conceptFixture }) {
-  return `
+function main({ title, magnetData, assetLoader }) {
+	return `
 		<!DOCTYPE html>
 		<html lang="en-GB">
 		<head>
 			<meta charset="utf-8"/>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<title>${title}</title>
-			<link rel="stylesheet" href="/magnet-demo/static/styles/demo.css" />
-
+			
 			<script>
 				var exports = {};
 			</script>
-			<script async defer type="application/javascript" src="/magnet-demo/static/styles/demo.js"></script>
-			<script async defer type="application/javascript" src="/magnet-demo/static/demo.js"></script>
+			<!--<script async defer type="application/javascript" src="/magnet-demo/static/styles/demo.js"></script>
+			<script async defer type="application/javascript" src="/magnet-demo/static/demo.js"></script>-->
+			${assetLoader.getStylesheetURLsFor('styles').map((url) => `<link rel="stylesheet" href="${url}" />`)}
+			${assetLoader.getScriptURLsFor('scripts').map((url) => `<script async defer src=${url}></script>`)}
 		</head>
 		<body>
 			<div class="o-grid-container o-grid-container--snappy">
@@ -26,8 +28,8 @@ function main ({ title, conceptFixture }) {
 					vvvvv
 				</div>
 				<div class="o-grid-row demo-context__inarticle" data-o-grid-colspan="12">
-					<script class="js-magnet-data" type="application/json">${conceptFixture}</script>
-					<div class="magnet-cta js-magnet-cta"></div>
+					<script class="js-magnet-data" type="application/json">${JSON.stringify(magnetData)}</script>
+					<div class="magnet-cta js-magnet-cta" data-trackable="magnet-cta"></div>
 				</div>
 				<div class="magnet-filler">
 					^^^^^
@@ -40,7 +42,7 @@ function main ({ title, conceptFixture }) {
 			</div>
 		</body>
 	</html>
-	`;
+	`
 }
 
-module.exports = main;
+module.exports = main

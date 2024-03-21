@@ -1,11 +1,15 @@
 plugins:
+  - '@dotcom-tool-kit/frontend-app'
   - '@dotcom-tool-kit/jest'
-  - '@dotcom-tool-kit/circleci'
   - '@dotcom-tool-kit/eslint'
   - '@dotcom-tool-kit/prettier'
-  - '@dotcom-tool-kit/npm'
+  - '@dotcom-tool-kit/nodemon'
+  - '@dotcom-tool-kit/lint-staged'
+  - '@dotcom-tool-kit/husky-npm'
   - '@dotcom-tool-kit/circleci-npm'
 hooks:
+  run:local:
+    - Nodemon
   test:local:
     - Eslint
     - JestLocal
@@ -16,9 +20,24 @@ options:
   '@dotcom-tool-kit/jest':
     configPath: './jest.config.js'
   '@dotcom-tool-kit/prettier':
-    files: '**/*.{js,yml,json}'
+    files: '**/*.{js,jsx,yml,json}'
+    configFile: './prettier.config.js'
   '@dotcom-tool-kit/eslint':
-    files: '**/*.{js,yml,json}'
+    files: '**/*.{js,jsx,yml,json}'
   '@dotcom-tool-kit/circleci':
     nodeVersion:
-      - '18.16'
+      - '18.16-browsers'
+  '@dotcom-tool-kit/heroku':
+    pipeline: 'n-magnet-demo'
+    systemCode: 'npm:@financial-times/n-magnet'
+    scaling:
+      'n-magnet-demo':
+        web:
+          size: basic
+          quantity: 1
+  '@dotcom-tool-kit/nodemon':
+    entry: './demos/app.js'
+    useVault: false
+    ports: [5005]
+  '@dotcom-tool-kit/doppler':
+    project: 'repo_n-magnet'
