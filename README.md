@@ -55,8 +55,7 @@ import * as magnet from '@financial-times/n-magnet';
 magnet
   .init({ oTracking, flags })
   .then(() => {
-    const replacedItem = document.querySelector('.js-instant-alert-cta');
-    replacedItem.style.display = 'none';
+    // Do something after the component is loaded
   })
   .catch((error) => {
     // fail silently
