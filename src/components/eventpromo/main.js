@@ -1,20 +1,20 @@
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { Eventpromo } from '@financial-times/n-eventpromo'
-import { getMappedData } from './utils'
+/** @jsx h */
+import { h, render } from 'preact';
+import { Eventpromo } from '@financial-times/n-eventpromo';
+import { getMappedData } from './utils';
 
 export default function eventPromo(container, data) {
-	const formattedData = getMappedData(data)
-	createRoot(container).render(<Eventpromo isPaused={true} {...formattedData} />)
+	const formattedData = getMappedData(data);
+	render(<Eventpromo isPaused={true} {...formattedData} />, container);
 
 	window.addEventListener(
 		'load',
 		() => {
-			const target = document.querySelector('.js-magnet-cta')
+			const target = document.querySelector('.js-magnet-cta');
 			const options = {
 				root: null,
-				threshold: 0.5,
-			}
+				threshold: 0.5
+			};
 			const observer = new IntersectionObserver((entries, observer) => {
 				entries.forEach(async function (entry) {
 					if (entry.isIntersecting || entry.intersectionRatio > 0) {
@@ -22,19 +22,19 @@ export default function eventPromo(container, data) {
 							await fetch(`/magnet/api/eventpromo/save-view/${data.id}`, {
 								headers: {
 									accept: 'application/json',
-									'content-type': 'application/json',
+									'content-type': 'application/json'
 								},
-								method: 'POST',
-							})
+								method: 'POST'
+							});
 						} catch (error) {
 							// fail silently
 						}
-						observer.unobserve(entry.target)
+						observer.unobserve(entry.target);
 					}
-				})
-			}, options)
-			observer.observe(target)
+				});
+			}, options);
+			observer.observe(target);
 		},
-		false,
-	)
+		false
+	);
 }

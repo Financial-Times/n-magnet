@@ -1,18 +1,30 @@
-import React from 'react'
-import Form from './Form'
-import classnames from 'classnames'
+/** @jsx h */
+import { h } from 'preact';
+import Form from './Form';
+import classnames from 'classnames';
 
-export default function NewsletterSignup({ isPremium, imageUrl, id, name, description, frequency, userNeedsToUpgrade, userIsSubscribed, updatingPreference }) {
+export default function NewsletterSignup({
+	isPremium,
+	imageUrl,
+	id,
+	name,
+	description,
+	frequency,
+	userNeedsToUpgrade,
+	userIsSubscribed,
+	updatingPreference
+}) {
 	return (
 		<section
 			data-component="n-newsletter-signup"
 			className={classnames({
 				'n-newsletter-signup': true,
-				'n-newsletter-signup--premium': isPremium,
+				'n-newsletter-signup--premium': isPremium
 			})}
 			data-newsletter-id={id}
 			data-newsletter-name={name}
-			data-newsletter-is-premium={isPremium}>
+			data-newsletter-is-premium={isPremium}
+		>
 			{imageUrl && (
 				<div className="n-newsletter-signup__image">
 					<picture>
@@ -32,7 +44,10 @@ export default function NewsletterSignup({ isPremium, imageUrl, id, name, descri
 				</h2>
 
 				{isPremium && (
-					<span aria-hidden="true" className="n-newsletter-signup__top-meta o-labels o-labels--content-premium">
+					<span
+						aria-hidden="true"
+						className="n-newsletter-signup__top-meta o-labels o-labels--content-premium"
+					>
 						Premium
 					</span>
 				)}
@@ -41,13 +56,22 @@ export default function NewsletterSignup({ isPremium, imageUrl, id, name, descri
 			</div>
 
 			{userNeedsToUpgrade ? (
-				<a href="/products?location=/newsletters" className="n-newsletter-signup__upgrade ft-concept-button__link" data-trackable="newsletters-upgrade">
+				<a
+					href="/products?location=/newsletters"
+					className="n-newsletter-signup__upgrade ft-concept-button__link"
+					data-trackable="newsletters-upgrade"
+				>
 					Upgrade
 					<span className="o-normalise-visually-hidden">&nbsp; your subscription to receive {{ name }}</span>
 				</a>
 			) : (
-				<Form newsletterId={id} name={name} userIsSubscribed={userIsSubscribed} updatingPreference={updatingPreference} />
+				<Form
+					newsletterId={id}
+					name={name}
+					userIsSubscribed={userIsSubscribed}
+					updatingPreference={updatingPreference}
+				/>
 			)}
 		</section>
-	)
+	);
 }
