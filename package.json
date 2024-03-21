@@ -78,7 +78,7 @@
     "@financial-times/ft-date-format": "^1.0.0",
     "@financial-times/n-eventpromo": "^10.0.7",
     "classnames": "^2.5.1",
-    "js-cookie": "^2.2.1",
+    "js-cookie": "^3.0.0",
     "mathsass": "0.10.1",
     "superstore-sync": "^2.1.1"
   },
