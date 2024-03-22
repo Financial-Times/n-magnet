@@ -6,7 +6,7 @@ import classnames from 'classnames';
 export default function NewsletterSignup({
 	isPremium,
 	imageUrl,
-	id,
+	newsletterId,
 	name,
 	description,
 	frequency,
@@ -21,7 +21,7 @@ export default function NewsletterSignup({
 				'n-newsletter-signup': true,
 				'n-newsletter-signup--premium': isPremium
 			})}
-			data-newsletter-id={id}
+			data-newsletter-id={newsletterId}
 			data-newsletter-name={name}
 			data-newsletter-is-premium={isPremium}
 		>
@@ -66,7 +66,7 @@ export default function NewsletterSignup({
 				</a>
 			) : (
 				<Form
-					newsletterId={id}
+					newsletterId={newsletterId}
 					name={name}
 					userIsSubscribed={userIsSubscribed}
 					updatingPreference={updatingPreference}
