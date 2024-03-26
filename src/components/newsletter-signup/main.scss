@@ -1,7 +1,7 @@
+@import '@financial-times/o-normalise/main';
 @import '@financial-times/ft-concept-button/main';
 @import '@financial-times/o-labels/main';
 @import '@financial-times/o-buttons/main';
-@import 'n-ui-foundations/main';
 
 @include oLabels($opts: ('sizes': ('small'),
 	'states': ('content-premium'
@@ -85,7 +85,7 @@
 		color: oColorsByName('black-80');
 		margin: 0 0 0.5em 0;
 		max-width: 30em;
-	
+
 		@include oGridRespondTo($from: M) {
 			margin-bottom: 0;
 		}
